@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import fetch from 'isomorphic-fetch';
+import NavBar from './components/NavBar';
 import LoginForm from './components/LoginForm';
 
 
@@ -23,7 +24,9 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="container">
+        <NavBar />
+        <h1>Welcome!</h1>
         <LoginForm />
       </div>
     );
