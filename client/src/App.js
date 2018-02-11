@@ -31,7 +31,7 @@ class App extends Component {
         <div className="container">
           <NavBar />
           <Route exact path="/" component={Home}/>
-          <Route exact path="/signup" component={SignupForm}/>
+          <Route exact path="/signup" component={SignupForm} userSignUpRequest={userSignUpRequest}/>
           <Route exact path="/login" component={LoginForm}/>
         </div>
       </Router>
