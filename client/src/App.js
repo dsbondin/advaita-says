@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import fetch from 'isomorphic-fetch';
 import NavBar from './components/NavBar';
+import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
+import Home from './components/Home';
 
 
 
@@ -24,11 +27,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <Router>
         <NavBar />
-        <h1>Welcome!</h1>
-        <LoginForm />
-      </div>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/signup" component={SignupForm}/>
+        <Route exact path="/login" component={LoginForm}/>
+      </Router>
     );
   }
 }
