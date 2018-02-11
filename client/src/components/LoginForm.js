@@ -22,15 +22,15 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-          <input type="submit"/>
+      <div style={{ width: "330px", margin: "auto"}}>
+        <form className="form-signin" onSubmit={this.handleSubmit}>
+          <h2 className="form-signin-heading">Please Log In</h2>
+          <label htmlFor="inputEmail" className="sr-only">Username</label>
+          <input type="text" name="username" className="form-control" placeholder="username" required autoFocus/>
+          <label htmlFor="inputPassword" className="sr-only">Password</label>
+          <input type="password" name="password" className="form-control" placeholder="password" required/><br/>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
         </form>
-
-
       </div>
     )
   }
