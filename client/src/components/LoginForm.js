@@ -46,6 +46,7 @@ class LoginForm extends Component {
             placeholder="password"
             required
           /><br/>
+
           <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
         </form>
       </div>
