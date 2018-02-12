@@ -6,7 +6,9 @@ class LoginPage extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: {},
+      isLoading: false
     }
   }
 
@@ -18,8 +20,10 @@ class LoginPage extends Component {
   }
 
   handleSubmit = (event) => {
+    this.setState({ error: {}, isLoading: true })
     event.preventDefault();
-    this.props.signUpUser(this.state);
+    this.props.signUpUser(this.state)
+      .then
   }
 
   render() {
