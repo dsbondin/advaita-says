@@ -1,4 +1,4 @@
-export function signInUser(userData) {
+export function logInUser(userData) {
   return (dispatch) => {
     dispatch({type: "SEND_LOG_IN_REQUEST"});
     return fetch("http://localhost:3001/login", {

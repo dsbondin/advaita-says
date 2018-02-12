@@ -51,7 +51,7 @@ class SignUpPage extends Component {
             {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
           </div>
 
-          <div className="form-group">
+          <div className={classnames("form-group", {'has-error': errors && errors.password })}>
             <input
               type="password"
               name="password"
@@ -61,6 +61,7 @@ class SignUpPage extends Component {
               placeholder="password"
               required
             />
+            {errors && errors.password ? <span className="help-block">{errors.password}</span> : null}
           </div>
 
           <div className="form-group">

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux'
-import { signInUser } from '../actions/signInUser';
+import { logInUser } from '../actions/logInUser';
 
 class LogInPage extends Component {
   constructor() {
@@ -22,7 +22,11 @@ class LogInPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signInUser(this.state);
+    this.props.logInUser(this.state);
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   render() {
@@ -34,23 +38,24 @@ class LogInPage extends Component {
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Log In</h2>
 
-          <div className="form-group">
+          <div className={classnames("form-group", {'has-error': errors && errors.username })}>
             <input
               type="username"
               name="username"
-              value={this.state.username}
+              value={username}
               onChange={this.handleChange}
               className="form-control"
               placeholder="username"
               required autoFocus
             />
+            {errors && errors.username ? <span className="help-block">{errors.username}</span> : null}
           </div>
 
           <div className="form-group">
             <input
               type="password"
               name="password"
-              value={this.state.password}
+              value={password}
               onChange={this.handleChange}
               className="form-control"
               placeholder="password"
@@ -59,7 +64,7 @@ class LogInPage extends Component {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+            <button disabled={isLoading} className="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
           </div>
         </form>
       </div>
@@ -74,4 +79,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {signInUser})(LogInPage);
+export default connect(mapStateToProps, {logInUser})(LogInPage);

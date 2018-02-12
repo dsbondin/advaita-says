@@ -13,6 +13,12 @@ function authReducer(state = initialState, action) {
     case 'SIGN_UP_USER':
       console.log(action)
       return {...state, user: action.JSON.user, token: action.JSON.token, isLoading: false, errors: action.JSON.errors};
+    case 'SEND_LOG_IN_REQUEST':
+      console.log(action)
+      return {...state, isLoading: true};
+    case 'LOG_IN_USER':
+      console.log(action)
+      return {...state, user: action.JSON.user, token: action.JSON.token, isLoading: false, errors: action.JSON.errors}
     default:
       return state;
   }
