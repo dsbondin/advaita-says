@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
+import { connect } from 'react-redux'
+import { signInUser } from '../actions/signInUser';
 
-class LoginPage extends Component {
+class LogInPage extends Component {
   constructor() {
     super();
 
@@ -22,6 +25,9 @@ class LoginPage extends Component {
   }
 
   render() {
+    const { username, password} = this.state
+    const { errors, isLoading } = this.props
+
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
@@ -60,4 +66,11 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+function mapStateToProps(state) {
+  return {
+    isLoading: state.auth.isLoading,
+    errors: state.auth.errors
+  }
+}
+
+export default connect(mapStateToProps, {signInUser})(LogInPage);

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux'
 import { signUpUser } from '../actions/signUpUser';
 
-class LoginPage extends Component {
+class SignUpPage extends Component {
   constructor() {
     super();
 
@@ -79,4 +79,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {signUpUser})(LoginPage);
+export default connect(mapStateToProps, {signUpUser})(SignUpPage);

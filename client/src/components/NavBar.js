@@ -9,7 +9,7 @@ class NavBar extends Component {
 
   render() {
     const { username } = this.props;
-    const loggedIn = !!username
+    const isLoggedIn = !!username
 
     return (
       <div className="navbar navbar-default">
@@ -20,7 +20,11 @@ class NavBar extends Component {
 
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav navbar-right">
-              {loggedIn ? <LoggedInLinks username={username}/> : <LoggedOutLinks/>}
+              {isLoggedIn ?
+                <LoggedInLinks username={username}/>
+                :
+                <LoggedOutLinks/>
+              }
             </ul>
           </div>
         </div>

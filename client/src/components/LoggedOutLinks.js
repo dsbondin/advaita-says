@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const LoggedOutLinks = ({username}) => {
   return (
     <div className="nav navbar-nav">
-      <li><Link to="/login">Log In</Link></li>
       <li><Link to="/signup">Sign Up</Link></li>
+      <li><Link to="/login">Log In</Link></li>
     </div>
   )
 }
