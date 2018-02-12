@@ -22,11 +22,13 @@ class SignUpPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signupAction(this.state);
+    const { signupAction, history } = this.props;
+    signupAction(this.state);
     this.setState({
       username: '',
       password: ''
-    })
+    });
+    history.push('/')
   }
 
   render() {

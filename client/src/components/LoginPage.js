@@ -26,7 +26,8 @@ class LogInPage extends Component {
     this.setState({
       username: '',
       password: ''
-    })
+    });
+    this.props.history.push('/')
   }
 
   render() {
