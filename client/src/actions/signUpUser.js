@@ -8,7 +8,13 @@ export function signUpUser(userData) {
         "Accept": "application/json",
         "Content-Type": "application/json"
       }
-    })
+    }).then(response => response.json())
+      .then(responseJSON => {
+        dispatch({
+        type: "SIGN_UP_USER",
+        responseJSON: responseJSON}
+      )}
+    )
   }
 }
 

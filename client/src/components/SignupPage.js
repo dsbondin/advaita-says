@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import classnames from 'classnames'
+import classnames from 'classnames';
+import { connect } from 'react-redux'
+import { signUpUser } from '../actions/signUpUser';
+
+
 
 class LoginPage extends Component {
   constructor() {
@@ -7,9 +11,7 @@ class LoginPage extends Component {
 
     this.state = {
       username: '',
-      password: '',
-      errors: {},
-      isLoading: false
+      password: ''
     }
   }
 
@@ -22,20 +24,13 @@ class LoginPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ errors: {}, isLoading: true })
     this.props.signUpUser(this.state)
-    .then(response => response.json())
-    .then(json => { this.setState({
-      errors: json.errors,
-      isLoading: false
-    })
-    console.log(this.state)
-  })
   }
 
   render() {
-    const { username, password, errors, isLoading } = this.state
-    console.log("errors: ", errors)
+    const { username, password} = this.state
+    const { errors, isLoading } = this.props
+
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
@@ -75,4 +70,7 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+
+
+
+export default connect(null, {signUpUser})(LoginPage);
