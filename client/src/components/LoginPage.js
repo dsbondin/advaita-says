@@ -22,12 +22,13 @@ class LogInPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.loginAction(this.state);
+    const { loginAction, history } = this.props;
+    loginAction(this.state);
     this.setState({
       username: '',
       password: ''
     });
-    this.props.history.push('/')
+    history.push('/')
   }
 
   render() {

@@ -9,14 +9,11 @@ export function signupAction(userData) {
         "Content-Type": "application/json"
       }
     }).then(response => response.json())
-      .then(JSON => {
-        dispatch({
+      .then(JSON => { dispatch({
         type: "SIGN_UP_USER",
-        JSON: JSON}
-      )}
-    )
+        JSON: JSON
+      });
+      localStorage.setItem('token', JSON.token);
+    });
   }
 }
-
-// Finish this first thing in the morning!
-// reducer will set state isLoading to true, on SEND_SIGN_UP_REQUEST, then update username and token upon success

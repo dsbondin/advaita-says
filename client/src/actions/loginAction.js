@@ -12,7 +12,8 @@ export function loginAction(userData) {
       .then(JSON => { dispatch({
         type: "LOG_IN_USER",
         JSON: JSON}
-      )}
-    )
+      );
+      localStorage.setItem('token', JSON.token);
+    });
   }
 }
