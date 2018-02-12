@@ -34,9 +34,9 @@ class NavBar extends Component {
 }
 
 function mapStateToProps(state) {
-  if (!!state.auth.user) {
+  if (!!state.auth.currentUser) {
     return {
-      username: state.auth.user.username
+      username: state.auth.currentUser.username
     }
   }
 }

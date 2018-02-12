@@ -22,13 +22,19 @@ class SignUpPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { signupAction, history } = this.props;
+    const { signupAction } = this.props;
     signupAction(this.state);
     this.setState({
       username: '',
       password: ''
     });
-    history.push('/')
+  }
+
+  // redirect only if user logs in successfully
+  componentWillReceiveProps(props) {
+    if (!!props.token) {
+      this.props.history.push('/')
+    }
   }
 
   render() {
@@ -76,6 +82,7 @@ class SignUpPage extends Component {
 
 function mapStateToProps(state) {
   return {
+    token: state.auth.token,
     isLoading: state.auth.isLoading,
     errors: state.auth.errors
   }
