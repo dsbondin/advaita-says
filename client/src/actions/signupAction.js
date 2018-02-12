@@ -13,7 +13,6 @@ export function signupAction(userData) {
         type: "SIGN_UP_USER",
         JSON: JSON
       });
-      localStorage.setItem('token', JSON.token);
     });
   }
 }

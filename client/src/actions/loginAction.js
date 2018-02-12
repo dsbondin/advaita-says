@@ -13,7 +13,6 @@ export function loginAction(userData) {
         type: "LOG_IN_USER",
         JSON: JSON}
       );
-      localStorage.setItem('token', JSON.token);
     });
   }
 }

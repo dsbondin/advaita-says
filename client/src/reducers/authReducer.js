@@ -10,14 +10,24 @@ function authReducer(state = initialState, action) {
     case 'SEND_SIGN_UP_REQUEST':
       return {...state, isLoading: true}
     case 'SIGN_UP_USER':
-      return {...state, currentUser: action.JSON.user, token: action.JSON.token, isLoading: false, errors: action.JSON.errors};
+      return setCurrentUser(state, action.JSON)
     case 'SEND_LOG_IN_REQUEST':
       return {...state, isLoading: true};
     case 'LOG_IN_USER':
-      return {...state, currentUser: action.JSON.user, token: action.JSON.token, isLoading: false, errors: action.JSON.errors}
+      return setCurrentUser(state, action.JSON)
     default:
       return state;
   }
 };
+
+function setCurrentUser(state, json) {
+  localStorage.setItem('token', json.token);
+  localStorage.setItem('username', json.user.username);
+  return {...state,
+    currentUser: json.user,
+    token: json.token,
+    errors: json.errors,
+    isLoading: false};
+}
 
 export default authReducer;

@@ -8,8 +8,6 @@ import LoggedOutLinks from './LoggedOutLinks';
 class NavBar extends Component {
 
   render() {
-    const { username } = this.props;
-    const isLoggedIn = !!username
 
     return (
       <div className="navbar navbar-default">
@@ -20,8 +18,8 @@ class NavBar extends Component {
 
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav navbar-right">
-              {isLoggedIn ?
-                <LoggedInLinks username={username}/>
+              {!!currentUser() ?
+                <LoggedInLinks username={currentUser()}/>
                 :
                 <LoggedOutLinks/>
               }
@@ -33,12 +31,13 @@ class NavBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  if (!!state.auth.currentUser) {
-    return {
-      username: state.auth.currentUser.username
-    }
+function currentUser() {
+  let username;
+  if (username = localStorage.getItem('username')) {
+    return username;
+  } else {
+    return null;
   }
 }
 
-export default connect(mapStateToProps)(NavBar)
+export default NavBar
