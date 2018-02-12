@@ -24,7 +24,11 @@ class LoginPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signUpUser(this.state)
+    this.props.signUpUser(this.state);
+    this.setState({
+      username: '',
+      password: ''
+    })
   }
 
   render() {
@@ -70,7 +74,13 @@ class LoginPage extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    token: state.token,
+    isLoading: state.auth.isLoading,
+    errors: state.auth.errors
+  }
+}
 
-
-
-export default connect(null, {signUpUser})(LoginPage);
+export default connect(mapStateToProps, {signUpUser})(LoginPage);

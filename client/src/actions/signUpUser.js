@@ -9,10 +9,10 @@ export function signUpUser(userData) {
         "Content-Type": "application/json"
       }
     }).then(response => response.json())
-      .then(responseJSON => {
+      .then(JSON => {
         dispatch({
         type: "SIGN_UP_USER",
-        responseJSON: responseJSON}
+        JSON: JSON}
       )}
     )
   }

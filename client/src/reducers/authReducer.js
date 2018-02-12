@@ -11,7 +11,7 @@ function authReducer(state = initialState, action) {
       return {...state, isLoading: true}
     case 'SIGN_UP_USER':
       console.log(action)
-      return {...state, user: action.user, token: action.token, isLoading: false, errors: action.responseJSON.errors};
+      return {...state, user: action.JSON.user, token: action.JSON.token, isLoading: false, errors: action.JSON.errors};
     default:
       return state;
   }
