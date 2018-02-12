@@ -1,13 +1,30 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { logoutAction } from '../actions/logoutAction';
 import LoggedInLinks from './LoggedInLinks';
 import LoggedOutLinks from './LoggedOutLinks';
 
 
 class NavBar extends Component {
 
+  logout = () => {
+    localStorage.clear();
+    this.props.logoutAction();
+  }
+
   render() {
+    const isLoggedIn = !!localStorage.getItem("token")
+    const userLinks = (
+      <div className="nav navbar-nav navbar-header">
+        <li><Link to="/logout" onClick={this.logout}>Log Out</Link></li>
+      </div>
+    )
+    const guestLinks = (
+      <div className="nav navbar-nav">
+        <li><Link to="/signup">Sign Up</Link></li>
+        <li><Link to="/login">Log In</Link></li>
+      </div>
+    )
 
     return (
       <div className="navbar navbar-default">
@@ -18,25 +35,12 @@ class NavBar extends Component {
 
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav navbar-right">
-              {!!currentUser() ?
-                <LoggedInLinks username={currentUser()}/>
-                :
-                <LoggedOutLinks/>
-              }
+              {isLoggedIn ? userLinks : guestLinks}
             </ul>
           </div>
         </div>
       </div>
     )
-  }
-}
-
-function currentUser() {
-  let username;
-  if (username = localStorage.getItem('username')) {
-    return username;
-  } else {
-    return null;
   }
 }
 

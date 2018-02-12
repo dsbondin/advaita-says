@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const LoggedInLinks = ({username}) => {
+const LoggedInLinks = ({ logout }) => {
   return (
     <div className="nav navbar-nav navbar-header">
-      <li><Link to="" style={{color: '#660033'}}>Welcome, {username}!</Link></li>
-      <li><Link to="/logout">Log Out</Link></li>
+      <li><Link to="/logout" onClick={logout}>Log Out</Link></li>
     </div>
   )
 }

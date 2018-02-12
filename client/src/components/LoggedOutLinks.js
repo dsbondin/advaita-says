@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const LoggedOutLinks = ({username}) => {
+const LoggedOutLinks = () => {
   return (
     <div className="nav navbar-nav">
       <li><Link to="/signup">Sign Up</Link></li>
