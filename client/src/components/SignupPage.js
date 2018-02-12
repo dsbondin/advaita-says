@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux'
-import { signUpUser } from '../actions/signUpUser';
+import { signupAction } from '../actions/signupAction';
 
 class SignUpPage extends Component {
   constructor() {
@@ -22,7 +22,7 @@ class SignUpPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signUpUser(this.state);
+    this.props.signupAction(this.state);
     this.setState({
       username: '',
       password: ''
@@ -30,7 +30,7 @@ class SignUpPage extends Component {
   }
 
   render() {
-    const { username, password} = this.state
+    const { username, password } = this.state
     const { errors, isLoading } = this.props
 
     return (
@@ -51,7 +51,7 @@ class SignUpPage extends Component {
             {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
           </div>
 
-          <div className={classnames("form-group", {'has-error': errors && errors.password })}>
+          <div className="form-group">
             <input
               type="password"
               name="password"
@@ -61,7 +61,6 @@ class SignUpPage extends Component {
               placeholder="password"
               required
             />
-            {errors && errors.password ? <span className="help-block">{errors.password}</span> : null}
           </div>
 
           <div className="form-group">
@@ -80,4 +79,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {signUpUser})(SignUpPage);
+export default connect(mapStateToProps, {signupAction})(SignUpPage);
