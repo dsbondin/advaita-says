@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classnames from 'classnames'
 
 class LoginPage extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class LoginPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ error: {}, isLoading: true })
+    this.setState({ errors: {}, isLoading: true })
     this.props.signUpUser(this.state)
     .then(response => response.json())
     .then(json => { this.setState({
@@ -32,32 +33,35 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { errors } = this.state
+    const { username, password, errors } = this.state
+    console.log("errors: ", errors)
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Please Sign Up</h2>
-
-          <input
-            type="username"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-            className="form-control"
-            placeholder="username"
-            required autoFocus
-          />
-          {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-            className="form-control"
-            placeholder="password"
-            required
-          />
-
+          <div className={classnames("form-group", {'has-error': errors && errors.username })}>
+            <input
+              type="username"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+              className="form-control"
+              placeholder="username"
+              required autoFocus
+            />
+            {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
+          </div>
+          <div className="form-group">
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              className="form-control"
+              placeholder="password"
+              required
+            />
+          </div>
           <button className="btn btn-lg btn-primary btn-block" type="submit" style={{ marginTop: "12px"}}>Sign Up</button>
         </form>
       </div>
