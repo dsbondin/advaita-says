@@ -7,7 +7,7 @@ class LoginPage extends Component {
     this.state = {
       username: '',
       password: '',
-      error: {},
+      errors: {},
       isLoading: false
     }
   }
@@ -20,20 +20,24 @@ class LoginPage extends Component {
   }
 
   handleSubmit = (event) => {
-    this.setState({ error: {}, isLoading: true })
     event.preventDefault();
+    this.setState({ error: {}, isLoading: true })
     this.props.signUpUser(this.state)
     .then(response => response.json())
-    .then(json => { console.log(json) })
+    .then(json => { this.setState({
+      errors: json.errors
+    })
+    console.log(this.state)
+  })
   }
 
   render() {
+    const { errors } = this.state
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Please Sign Up</h2>
 
-          <label htmlFor="username" className="sr-only">Username</label>
           <input
             type="username"
             name="username"
@@ -43,7 +47,7 @@ class LoginPage extends Component {
             placeholder="username"
             required autoFocus
           />
-          <label htmlFor="password" className="sr-only">Password</label>
+          {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
           <input
             type="password"
             name="password"
@@ -52,9 +56,9 @@ class LoginPage extends Component {
             className="form-control"
             placeholder="password"
             required
-          /><br/>
+          />
 
-          <button className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+          <button className="btn btn-lg btn-primary btn-block" type="submit" style={{ marginTop: "12px"}}>Sign Up</button>
         </form>
       </div>
     )
