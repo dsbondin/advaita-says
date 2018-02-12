@@ -6,7 +6,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: user.id})
       render json: {user: user, token: token}
     else
-      render json: {error: user.errors}
+      render json: {errors: user.errors}
     end
   end
 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if current_user
       render json: {user: current_user, quotes: current_user.quotes}
     else
-      render json: {error: "Something went wrong"}
+      render json: {errors: "Something went wrong"}
     end
   end
 

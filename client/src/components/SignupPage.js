@@ -23,7 +23,8 @@ class LoginPage extends Component {
     this.setState({ error: {}, isLoading: true })
     event.preventDefault();
     this.props.signUpUser(this.state)
-      .then
+    .then(response => response.json())
+    .then(json => { console.log(json) })
   }
 
   render() {

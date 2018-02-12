@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       token = encode_token({user_id: user.id})
       render json: {user: user, token: token}
     else
-      render json: {error: "Password doesn't match. Please try again."}
+      render json: {errors: "Wrong username or password. Please try again."}
     end
   end
 
