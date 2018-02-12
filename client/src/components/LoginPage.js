@@ -22,6 +22,7 @@ class LogInPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.signInUser(this.state);
   }
 
   render() {
