@@ -26,14 +26,15 @@ class LoginPage extends Component {
     this.props.signUpUser(this.state)
     .then(response => response.json())
     .then(json => { this.setState({
-      errors: json.errors
+      errors: json.errors,
+      isLoading: false
     })
     console.log(this.state)
   })
   }
 
   render() {
-    const { username, password, errors } = this.state
+    const { username, password, errors, isLoading } = this.state
     console.log("errors: ", errors)
     return (
       <div style={{ width: "330px", margin: "auto"}}>
@@ -62,7 +63,7 @@ class LoginPage extends Component {
               required
             />
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="submit" style={{ marginTop: "12px"}}>Sign Up</button>
+          <button disabled={isLoading} className="btn btn-lg btn-primary btn-block" type="submit" style={{ marginTop: "12px"}}>Sign Up</button>
         </form>
       </div>
     )
