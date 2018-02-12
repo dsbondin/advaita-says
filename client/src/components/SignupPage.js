@@ -3,8 +3,6 @@ import classnames from 'classnames';
 import { connect } from 'react-redux'
 import { signUpUser } from '../actions/signUpUser';
 
-
-
 class LoginPage extends Component {
   constructor() {
     super();
@@ -76,8 +74,6 @@ class LoginPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    token: state.token,
     isLoading: state.auth.isLoading,
     errors: state.auth.errors
   }

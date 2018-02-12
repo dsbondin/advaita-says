@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
@@ -30,9 +30,11 @@ class App extends Component {
       <Router>
         <div className="container">
           <NavBar />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/signup" component={SignupPage}/>
-          <Route exact path="/login" component={LoginPage}/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/signup" component={SignupPage}/>
+            <Route exact path="/login" component={LoginPage}/>
+          </Switch>
         </div>
       </Router>
     );
