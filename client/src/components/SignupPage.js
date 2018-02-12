@@ -39,7 +39,8 @@ class LoginPage extends Component {
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
-          <h2 className="form-signin-heading">Please Sign Up</h2>
+          <h2 className="form-signin-heading">Sign Up</h2>
+
           <div className={classnames("form-group", {'has-error': errors && errors.username })}>
             <input
               type="username"
@@ -52,6 +53,7 @@ class LoginPage extends Component {
             />
             {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
           </div>
+
           <div className="form-group">
             <input
               type="password"
@@ -63,7 +65,10 @@ class LoginPage extends Component {
               required
             />
           </div>
-          <button disabled={isLoading} className="btn btn-lg btn-primary btn-block" type="submit" style={{ marginTop: "12px"}}>Sign Up</button>
+
+          <div className="form-group">
+            <button disabled={isLoading} className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+          </div>
         </form>
       </div>
     )
