@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
-import fetch from 'isomorphic-fetch';
+import { connect } from 'react-redux'
 import NavBar from './components/NavBar';
-import SignupForm from './components/SignupForm';
-import LoginForm from './components/LoginForm';
+import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
 import Home from './components/Home';
 
 
@@ -31,12 +30,12 @@ class App extends Component {
         <div className="container">
           <NavBar />
           <Route exact path="/" component={Home}/>
-          <Route exact path="/signup" component={SignupForm} userSignUpRequest={userSignUpRequest}/>
-          <Route exact path="/login" component={LoginForm}/>
+          <Route exact path="/signup" component={SignupPage} signUpUser={this.props.signUpUser}/>
+          <Route exact path="/login" component={LoginPage}/>
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+export default connect(null, {signUpUser})(App);
