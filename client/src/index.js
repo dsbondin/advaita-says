@@ -7,7 +7,10 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers/index'
 import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(
+  (state = {}) => state,
+  applyMiddleware(thunk)
+)
 
 render(
   <Provider store={store}>

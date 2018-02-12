@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
+import { signUpUser } from './actions/signUp';
 import NavBar from './components/NavBar';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
@@ -30,7 +31,7 @@ class App extends Component {
         <div className="container">
           <NavBar />
           <Route exact path="/" component={Home}/>
-          <Route exact path="/signup" component={SignupPage} signUpUser={this.props.signUpUser}/>
+          <Route exact path="/signup" render={() => <SignupPage signUpUser={this.props.signUpUser}/>}/>
           <Route exact path="/login" component={LoginPage}/>
         </div>
       </Router>

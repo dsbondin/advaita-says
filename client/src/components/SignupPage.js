@@ -19,7 +19,7 @@ class LoginPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.userSignUpRequest(this.state);
+    this.props.signUpUser(this.state);
   }
 
   render() {

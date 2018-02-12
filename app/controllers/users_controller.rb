@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       render json: {error: "Something went wrong"}
     end
   end
-  
+
 end
 
 # user1 token
