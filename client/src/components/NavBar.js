@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import LoggedInLinks from './LoggedInLinks';
+import LoggedOutLinks from './LoggedOutLinks';
 
 
 class NavBar extends Component {
 
   render() {
-    const { username } = this.props
+    const { username } = this.props;
+    const loggedIn = !!username
 
     return (
       <div className="navbar navbar-default">
@@ -17,14 +20,7 @@ class NavBar extends Component {
 
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav navbar-right">
-            {!!username ? (
-              <div className="nav navbar-nav"><li><Link to="">Welcome, {username}!</Link></li>
-              <li><Link to="/logout">Log Out</Link></li></div>
-            ) : (
-              <div className="nav navbar-nav"><li><Link to="/login">Log In</Link></li>
-              <li><Link to="/signup">Sign Up</Link></li></div>
-            )
-            }
+              {loggedIn ? <LoggedInLinks username={username}/> : <LoggedOutLinks/>}
             </ul>
           </div>
         </div>
@@ -34,8 +30,10 @@ class NavBar extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    username: state.auth.user.username
+  if (!!state.auth.user) {
+    return {
+      username: state.auth.user.username
+    }
   }
 }
 
