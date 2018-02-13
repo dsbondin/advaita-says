@@ -16,7 +16,7 @@ class NavBar extends Component {
 
     const userLinks = (
       <div className="nav navbar-nav navbar-header">
-        <li><Link to="">Welcome, {username || this.props.username}</Link></li>
+        <li><Link to="">Welcome, {username}</Link></li>
         <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )
@@ -46,11 +46,7 @@ class NavBar extends Component {
 }
 
 function mapStateToProps(state) {
-  if (!!state.auth.user) {
-    return { username: state.auth.user.username }
-  } else {
-    return { username: {} };
-  }
+  return { user: state.auth.currentUser }
 }
 
 export default connect(mapStateToProps, { logoutAction })(NavBar)
