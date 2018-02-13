@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
 import QuotesList from './QuotesList';
 import QuoteCard from './QuoteCard';
 import QuoteForm from './QuoteForm';
@@ -11,14 +11,15 @@ import { fetchAllQuotes } from '../actions/quotesActions';
 class QuotesPage extends Component {
 
   componentDidMount() {
-    debugger;
     this.props.fetchAllQuotes();
   }
 
   render() {
+    const { isLoading, quotes } = this.props;
+
     return (
       <Switch>
-        <Route exact path='/quotes' component={QuotesList}/>
+        <Route exact path='/quotes' render={() => <QuotesList quotes={quotes} isLoading={isLoading}/>}/>
         <Route exact path='/quotes/my' component={QuotesList}/>
         <Route exact path='/quotes/random' component={QuoteCard}/>
         <Route exact path='/quotes/new' component={QuoteForm}/>
@@ -29,8 +30,13 @@ class QuotesPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    quotes: state.quotes
+    isLoading: state.quotes.isLoading,
+    quotes: state.quotes.list
   }
 }
 
-export default connect(mapStateToProps, {fetchAllQuotes})(QuotesPage);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchAllQuotes: fetchAllQuotes}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuotesPage);

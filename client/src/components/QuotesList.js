@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 
-class QuotesList extends Component {
-  render() {
-    return(
-      <div>QuotesList</div>
-    )
-  }
+const QuotesList = ({isLoading, quotes}) => {
+  const loadingRender = <div>Loading quotes...</div>
+
+  return(
+    <div>
+    QuotesList
+    </div>
+  )
 }
 
-export default QuotesList
+export default QuotesList;

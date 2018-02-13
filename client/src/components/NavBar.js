@@ -16,7 +16,6 @@ class NavBar extends Component {
 
     const userLinks = (
       <div className="nav navbar-nav navbar-header">
-        <li><Link to="" style={{color: "#603"}}>Welcome, {username}</Link></li>
         <li><Link to="/quotes" >All Quotes</Link></li>
         <li><Link to="/quotes/my">My Quotes</Link></li>
         <li><Link to="/quotes/random">Random</Link></li>
@@ -35,7 +34,9 @@ class NavBar extends Component {
       <div className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link className="navbar-brand" to="/">Advaita Says</Link>
+            <Link className="navbar-brand" to="/" style={{color: '#805'}}>
+              Advaita Says: {isLoggedIn ? `neti neti, ${username}!`: ''}
+            </Link>
           </div>
 
           <div className="collapse navbar-collapse">
