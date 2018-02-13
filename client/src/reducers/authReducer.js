@@ -16,15 +16,16 @@ function authReducer(state = initialState, action) {
     case 'LOG_IN_USER':
       return setCurrentUser(state, action.JSON)
     case 'LOG_OUT_USER':
-      return initialState;
+      return {...initialState, currentUser: null};
     default:
       return state;
   }
 };
 
 function setCurrentUser(state, json) {
-  if (!json.errors) {
+  if (json.token) {
     localStorage.setItem('token', json.token);
+    localStorage.setItem('username', json.user.username);
   }
   return {...state,
     currentUser: json.user,

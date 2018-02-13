@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { logoutAction } from '../actions/logoutAction';
-import LoggedInLinks from './LoggedInLinks';
-import LoggedOutLinks from './LoggedOutLinks';
 
 
 class NavBar extends Component {
 
-  logout = () => {
-    localStorage.clear();
+  logout(event) {
     this.props.logoutAction();
   }
 
   render() {
-    const isLoggedIn = !!localStorage.getItem("token")
+    let isLoggedIn = !!localStorage.getItem("token")
+    let username = localStorage.getItem("username")
+
     const userLinks = (
       <div className="nav navbar-nav navbar-header">
-        <li><Link to="/logout" onClick={this.logout}>Log Out</Link></li>
+        <li><Link to="">Welcome, {username || this.props.username}</Link></li>
+        <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )
     const guestLinks = (
@@ -44,4 +45,12 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar
+function mapStateToProps(state) {
+  if (!!state.auth.user) {
+    return { username: state.auth.user.username }
+  } else {
+    return { username: {} };
+  }
+}
+
+export default connect(mapStateToProps, { logoutAction })(NavBar)
