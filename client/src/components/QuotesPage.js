@@ -12,6 +12,7 @@ class QuotesPage extends Component {
     return (
       <Switch>
         <Route exact path='/quotes' component={QuotesList}/>
+        <Route exact path='/quotes/my' component={QuotesList}/>
         <Route exact path='/quotes/random' component={QuoteCard}/>
         <Route exact path='/quotes/new' component={QuoteForm}/>
       </Switch>
