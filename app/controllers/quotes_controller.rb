@@ -14,6 +14,7 @@ class QuotesController < ApplicationController
       render json: quote
     else
       render json: {error: "Something went wrong"}
+    end
   end
 
   def update

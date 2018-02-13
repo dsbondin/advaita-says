@@ -5,9 +5,16 @@ import { connect } from 'react-redux';
 import QuotesList from './QuotesList';
 import QuoteCard from './QuoteCard';
 import QuoteForm from './QuoteForm';
+import { fetchAllQuotes } from '../actions/quotesActions';
 
 
 class QuotesPage extends Component {
+
+  componentDidMount() {
+    debugger;
+    this.props.fetchAllQuotes();
+  }
+
   render() {
     return (
       <Switch>
@@ -20,4 +27,10 @@ class QuotesPage extends Component {
   }
 }
 
-export default QuotesPage;
+function mapStateToProps(state) {
+  return {
+    quotes: state.quotes
+  }
+}
+
+export default connect(mapStateToProps, {fetchAllQuotes})(QuotesPage);

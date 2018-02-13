@@ -5,7 +5,7 @@ const initialState = {
   errors: {}
 }
 
-function authReducer(state = initialState, action) {
+export function authReducer(state = initialState, action) {
   switch (action.type) {
     case 'SEND_SIGN_UP_REQUEST':
       return {...state, isLoading: true}
@@ -33,5 +33,3 @@ function setCurrentUser(state, json) {
     errors: json.errors,
     isLoading: false};
 }
-
-export default authReducer;
