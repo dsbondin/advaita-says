@@ -19,6 +19,7 @@ class NavBar extends Component {
         <li><Link to="" style={{color: "#603"}}>Welcome, {username}</Link></li>
         <li><Link to="/quotes" >Quotes</Link></li>
         <li><Link to="/quotes/random">Random</Link></li>
+        <li><Link to="/quotes/new">New Quote</Link></li>
         <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )

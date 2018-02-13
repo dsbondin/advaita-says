@@ -14,7 +14,7 @@ class App extends Component {
     console.log("App's props: ", this.props)
     return (
       <Router>
-        <div className="container">
+        <div className="container" style={{maxWidth: "960px"}}>
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home}/>
