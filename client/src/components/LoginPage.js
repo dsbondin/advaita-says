@@ -33,7 +33,7 @@ class LogInPage extends Component {
   // redirect only if user logs in successfully
   componentWillReceiveProps(props) {
     if (!!props.token) {
-      this.props.history.push('/')
+      this.props.history.push('/quotes/random')
     }
   }
 
