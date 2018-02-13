@@ -4,6 +4,14 @@ class QuotesController < ApplicationController
     render json: Quote.order(likes: :desc)
   end
 
+  def my
+    if current_user
+      render json: {user: current_user, quotes: current_user.quotes}
+    else
+      render json: {errors: "Something went wrong"}
+    end
+  end
+
   def random
     render json: Quote.order("RANDOM()").first
   end

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class QuoteCard extends Component {
+class RandomQuote extends Component {
   render() {
     return(
       <div>QuoteCard</div>
@@ -8,4 +8,4 @@ class QuoteCard extends Component {
   }
 }
 
-export default QuoteCard;
+export default RandomQuote;

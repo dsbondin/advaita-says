@@ -10,14 +10,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def my
-    if current_user
-      render json: {user: current_user, quotes: current_user.quotes}
-    else
-      render json: {errors: "Something went wrong"}
-    end
-  end
-
 end
 
 # user1 token
