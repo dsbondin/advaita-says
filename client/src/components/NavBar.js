@@ -16,7 +16,9 @@ class NavBar extends Component {
 
     const userLinks = (
       <div className="nav navbar-nav navbar-header">
-        <li><Link to="">Welcome, {username}</Link></li>
+        <li><Link to="" style={{color: "#603"}}>Welcome, {username}</Link></li>
+        <li><Link to="/quotes" >Quotes</Link></li>
+        <li><Link to="/quotes/random">Random</Link></li>
         <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )
