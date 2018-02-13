@@ -17,21 +17,16 @@ class QuotesController < ApplicationController
   end
 
   def create
-    quote = Quote.new(quote_params)
-    if quote.save
-      render json: quote
+    if current_user
+      quote = current_user.quotes.build(content: params[:content])
+      if quote.save
+        current_user.quotes << quote
+        render json: Quote.order(likes: :desc)
+      else
+        render json: {errors: "Something went wrong"}
+      end
     else
-      render json: {error: "Something went wrong"}
-    end
-  end
-
-  def update
-    quote = Quote.find_by(id: params.id)
-    if quote
-      quote.likes =+ 1
-      quote.save
-    else
-      render json: {error: "Something went wrong"}
+      render json: {errors: "You are not authorized to add new quotes"}
     end
   end
 

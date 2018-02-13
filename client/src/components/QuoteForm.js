@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { createNewQuote } from '../actions/quotesActions';
 
 
 class QuoteForm extends Component {

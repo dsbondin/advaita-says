@@ -23,3 +23,9 @@ export function fetchRandomQuote() {
     });
   }
 }
+
+export function createNewQuote() {
+  return (dispatch) => {
+    dispatch({type: "ADD_NEW_QUOTE_REQUEST"})
+  }
+}

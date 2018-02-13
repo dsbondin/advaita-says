@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/quotes' => 'quotes#index'
   get '/quotes/my' => 'quotes#my'
   get '/quotes/random' => 'quotes#random'
+  post '/quotes' => 'quotes#create'
 end
