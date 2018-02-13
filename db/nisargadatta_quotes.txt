@@ -1,4 +1,4 @@
-quotes = [
+﻿quotes = [
   "It is always the false that makes you suffer, the false desires and fears,
   the false values and ideas, the false relationships between people. Abandon
   the false and you are free of pain; truth makes happy, truth liberates.",
@@ -73,10 +73,10 @@ quotes = [
   All you need is courage.",
 
   "You may die a hundred deaths without a break in the mental turmoil. Or, you may keep your body and
-  die only in the mind. The death of the mind is the birth of wisdom.",
+  die only in the mind. The death of the mind is the birth of wisdom.", 
 
-  "Whatever happens, happens to you by you, through you.
-  You are the creator, enjoyer and destroyer of all you perceive.",
+  "Whatever happens, happens to you by you, through you;
+  you are the creator, enjoyer and destroyer of all you perceive.",
 
   "To deal with things knowledge of things is needed. To deal with
   people, you need insight, sympathy. To deal with yourself, you need
@@ -134,8 +134,15 @@ quotes = [
 
   "If you want to know your true nature, you must have yourself in mind all the time,
   until the secret of your being stands revealed."
-]
+] 
 
-quotes.map do |quote|
-  Quote.create(content: quote)
-end
+
+ 
+
+
+
+
+
+
+
+ 
