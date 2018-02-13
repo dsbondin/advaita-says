@@ -1,8 +1,8 @@
 const initialState = {
   list: [],
   randomQuote: null,
-  isLoading: false,
-  errors: {}
+  errors: {},
+  isLoading: false
 }
 
 export function quotesReducer(state = initialState, action) {
@@ -12,7 +12,7 @@ export function quotesReducer(state = initialState, action) {
     case 'FETCH_QUOTES':
       return {...state, list: action.JSON, isLoading: false}
     case 'FETCH_RANDOM_QUOTE':
-      return {...state, randomQuote: action.JSON, isloading: false}
+      return {...state, randomQuote: action.JSON, isLoading: false}
     default:
       return state;
   }

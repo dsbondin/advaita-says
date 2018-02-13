@@ -28,9 +28,16 @@ class QuotesPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    isLoading: state.quotes.isLoading,
-    quotes: state.quotes.list
+  if (!!state.quotes.list) {
+    return {
+      isLoading: state.quotes.isLoading,
+      quotes: state.quotes.list
+    }
+  } else {
+    return {
+      isLoading: state.quotes.isLoading,
+      quotes: [{content: ''}]
+    }
   }
 }
 

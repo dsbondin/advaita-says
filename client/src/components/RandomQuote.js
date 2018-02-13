@@ -10,7 +10,6 @@ class RandomQuote extends Component {
     this.props.fetchRandomQuote();
   }
 
-
   render() {
     const { isLoading, randomQuote} = this.props;
 
@@ -23,10 +22,23 @@ class RandomQuote extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    isLoading: state.quotes.isLoading,
-    randomQuote: state.quotes.randomQuote
+  if (state.quotes.randomQuote) {
+    return {
+      isLoading: state.quotes.isLoading,
+      randomQuote: state.quotes.randomQuote
+    }
+  } else {
+    return {
+      isLoading: state.quotes.isLoading,
+      randomQuote: ''
+    }
   }
 }
 
-export default connect(mapStateToProps, { fetchRandomQuote })(RandomQuote);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    fetchRandomQuote: fetchRandomQuote
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RandomQuote);

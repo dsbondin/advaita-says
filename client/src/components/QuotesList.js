@@ -7,7 +7,7 @@ const QuotesList = (props) => {
     return (
       <div>
         <ul>
-          <li key={index}>{quote.content.substring(0, 40)}...</li>
+          <li key={index}>{quote.content}</li>
         </ul>
       </div>
     )
