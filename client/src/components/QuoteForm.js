@@ -20,10 +20,12 @@ class QuoteForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createNewQuote(this.state);
+    const token = localStorage.getItem('token');
+    this.props.createNewQuote(this.state, token);
     this.setState({
       content: ''
     });
+    this.props.history.push('/quotes/my')
   }
 
   render() {
@@ -57,4 +59,4 @@ class QuoteForm extends Component {
   }
 }
 
-export default QuoteForm;
+export default connect(null, { createNewQuote })(QuoteForm);

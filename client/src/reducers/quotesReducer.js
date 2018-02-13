@@ -13,6 +13,10 @@ export function quotesReducer(state = initialState, action) {
       return {...state, list: action.JSON, isLoading: false}
     case 'FETCH_RANDOM_QUOTE':
       return {...state, randomQuote: action.JSON, isLoading: false}
+    case 'ADD_NEW_QUOTE_REQUEST':
+      return {...state, isLoading: true}
+    case 'ADD_NEW_QUOTE':
+      return {...state, list: action.JSON, isLoading: false}
     default:
       return state;
   }
