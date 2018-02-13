@@ -33,8 +33,8 @@ class NavBar extends Component {
       <div className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link className="navbar-brand" to="/" style={{color: '#805'}}>
-              Nisargadatta Says: {isLoggedIn ? `neti neti, ${username}!`: ''}
+            <Link className="navbar-brand" to="/" >
+              Nisargadatta Says: {isLoggedIn ? <span style={{color: '#A0A'}}>neti neti, {username}!</span>: ''}
             </Link>
           </div>
 
