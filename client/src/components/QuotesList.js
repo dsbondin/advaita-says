@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 const QuotesList = (props) => {
-  const loadingRender = <div>Loading quotes...</div>
+  const loadingRender = <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/></div>
 
   const quotesRender = props.quotes.map((quote, index) => {
     return (
@@ -12,7 +12,7 @@ const QuotesList = (props) => {
       </div>
     )
   });
-  
+
   return(
     <div>
     { props.isLoading ? loadingRender : quotesRender }

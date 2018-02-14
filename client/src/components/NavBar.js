@@ -30,11 +30,11 @@ class NavBar extends Component {
     )
 
     return (
-      <div className="navbar navbar-default">
+      <div className="navbar navbar-inverse" style={{backgroundColor: '#446'}}>
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link className="navbar-brand" to="/" >
-              Nisargadatta Says: {isLoggedIn ? <span style={{color: '#A0A'}}>neti neti, {username}!</span>: ''}
+            <Link className="navbar-brand" to="/">
+              Nisargadatta Says: {isLoggedIn ? `neti neti, ${username}!`: ''}
             </Link>
           </div>
 

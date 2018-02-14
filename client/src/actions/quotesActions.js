@@ -50,3 +50,7 @@ export function createNewQuote(quoteData, token) {
     )})
   }
 }
+
+export function addQuoteToAPI(quoteId) {
+  
+}

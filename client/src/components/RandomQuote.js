@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { fetchRandomQuote } from '../actions/quotesActions';
+import { addQuoteToAPI } from '../actions/quotesActions';
 import QuoteCard from './QuoteCard';
 
 class RandomQuote extends Component {
@@ -10,12 +11,16 @@ class RandomQuote extends Component {
     this.props.fetchRandomQuote();
   }
 
+  addQuoteToCollection = (quoteId) => {
+    this.props.addQuoteToAPI(quoteId);
+  }
+
   render() {
     const { isLoading, randomQuote} = this.props;
 
     return(
       <div>
-        <QuoteCard quote={randomQuote} isLoading={isLoading}/>
+        <QuoteCard quote={randomQuote} isLoading={isLoading} addQuoteToCollection={this.addQuoteToCollection}/>
       </div>
     )
   }
@@ -37,7 +42,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    fetchRandomQuote: fetchRandomQuote
+    fetchRandomQuote: fetchRandomQuote,
+    addQuoteToAPI: addQuoteToAPI
   }, dispatch)
 }
 
