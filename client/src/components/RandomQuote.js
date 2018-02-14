@@ -12,7 +12,8 @@ class RandomQuote extends Component {
   }
 
   addQuoteToCollection = (quoteId) => {
-    this.props.addQuoteToAPI(quoteId);
+    const token = localStorage.getItem('token');
+    this.props.addQuoteToAPI(quoteId, token);
   }
 
   render() {

@@ -17,6 +17,10 @@ export function quotesReducer(state = initialState, action) {
       return {...state, isLoading: true}
     case 'ADD_NEW_QUOTE':
       return {...state, list: action.JSON, isLoading: false}
+    case 'ADD_QUOTE_TO_COLLECTION_REQUEST':
+      return {...state, isLoading: true}
+    case 'ADD_QUOTE_TO_COLLECTION':
+      return {...state, list: action.JSON, isLoading: false}
     default:
       return state;
   }

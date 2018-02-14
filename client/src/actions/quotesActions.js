@@ -51,6 +51,22 @@ export function createNewQuote(quoteData, token) {
   }
 }
 
-export function addQuoteToAPI(quoteId) {
-  
+export function addQuoteToAPI(quoteId, token) {
+  return dispatch => {
+    dispatch({type: "ADD_QUOTE_TO_COLLECTION_REQUEST"});
+    return fetch("http://localhost:3001/quotes/add", {
+      method: "post",
+      body: JSON.stringify({quote_id: quoteId}),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Token": token
+      }
+    })
+    .then(response => response.json())
+    .then (JSON => { dispatch({
+      type: "ADD_QUOTE_TO_COLLECTION",
+      JSON: JSON}
+    )})
+  }
 }

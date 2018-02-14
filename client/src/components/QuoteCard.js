@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const QuoteCard = (props) => {
 
@@ -11,11 +12,8 @@ const QuoteCard = (props) => {
     <div className="card" style={{backgroundColor: '#eee', padding: '20px'}}>
       <div className="card-block">
         <p className="card-text">{props.quote.content}</p>
-        <a href="/quotes/my"
-          className="btn btn-primary"
-          onClick={() => this.addQuote(props.quote.id)}>
-          Add quote to my collection
-        </a>
+        <Link to="/quotes/my" className="btn btn-primary" onClick={() => addQuote(props.quote.id)}>Add quote to my collection</Link>
+
         <a href="/quotes/random" className="btn btn-primary" style={{marginLeft: "12px"}}>Next quote</a>
       </div>
     </div>
