@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux'
 import QuotesList from './QuotesList';
 import RandomQuote from './RandomQuote';
 import QuoteForm from './QuoteForm';
-import FlashMessage from './FlashMessage';
 import { fetchMyQuotes } from '../actions/quotesActions';
 
 
@@ -26,7 +25,6 @@ class QuotesPage extends Component {
           <Route exact path='/quotes/random' component={RandomQuote}/>
           <Route exact path='/quotes/new' component={QuoteForm}/>
         </Switch>
-        {!!this.props.message ? <FlashMessage message={this.props.message}/> : ''}
       </div>
     )
   }
@@ -37,13 +35,11 @@ function mapStateToProps(state) {
     return {
       isLoading: state.quotes.isLoading,
       quotes: state.quotes.list,
-      message: state.quotes.message
     }
   } else {
     return {
       isLoading: state.quotes.isLoading,
       quotes: [{content: ''}],
-      message: { type: null, text: null }
     }
   }
 }

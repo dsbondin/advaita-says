@@ -5,10 +5,10 @@ const QuotesList = (props) => {
 
   const quotesRender = props.quotes.map((quote, index) => {
     return (
-      <div>
-        <ul>
-          <li key={index}>{quote.content}</li>
-        </ul>
+      <div style={{margin: "20px"}}>
+        <p key={index}>
+          {quote.content}
+        </p>
       </div>
     )
   });

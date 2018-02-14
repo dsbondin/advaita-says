@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { fetchRandomQuote } from '../actions/quotesActions';
 import { addQuoteToCollectionAPI } from '../actions/quotesActions';
 import QuoteCard from './QuoteCard';
+import FlashMessage from './FlashMessage';
 
 class RandomQuote extends Component {
 
@@ -27,21 +28,24 @@ class RandomQuote extends Component {
           addQuoteToCollection={this.addQuoteToCollection}
           fetchRandomQuote={this.props.fetchRandomQuote}
         />
+        {!!this.props.message ? <FlashMessage message={this.props.message}/> : ''}
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  if (state.quotes.randomQuote) {
+  if (!!state.quotes.randomQuote) {
     return {
       isLoading: state.quotes.isLoading,
-      randomQuote: state.quotes.randomQuote
+      randomQuote: state.quotes.randomQuote,
+      message: state.quotes.message
     }
   } else {
     return {
       isLoading: state.quotes.isLoading,
-      randomQuote: ''
+      randomQuote: '',
+      message: { type: null, text: null }
     }
   }
 }
