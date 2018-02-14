@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchRandomQuote } from '../actions/quotesActions';
 
-const QuoteCard = (props) => {
+class QuoteCard extends Component {
 
-  const addQuote = (quoteId) => {
-    props.addQuoteToCollection(quoteId);
+  addQuote = (quoteId) => {
+    this.props.addQuoteToCollection(quoteId);
   }
 
-  const loadingRender = <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/></div>
-  const quoteRender = (
-    <div className="card" style={{backgroundColor: '#eee', padding: '20px'}}>
-      <div className="card-block">
-        <p className="card-text">{props.quote.content}</p>
-        <Link to="/quotes/my" className="btn btn-primary" onClick={() => addQuote(props.quote.id)}>Add quote to my collection</Link>
+  fetchRandom = () => {
+    this.props.fetchRandomQuote();
+  }
 
-        <a href="/quotes/random" className="btn btn-primary" style={{marginLeft: "12px"}}>Next quote</a>
+  render() {
+    const loadingRender = <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/></div>
+    const quoteRender = (
+      <div className="card" style={{backgroundColor: '#eee', padding: '20px'}}>
+        <div className="card-block">
+          <p className="card-text">{this.props.quote.content}</p>
+          <button
+            className="btn btn-primary"
+            onClick={() => this.addQuote(this.props.quote.id)}>
+            Add quote to my collection
+          </button>
+
+          <button
+            className="btn btn-primary"
+            style={{marginLeft: "12px"}}
+            onClick={() => this.fetchRandom()}>
+            Next quote
+          </button>
+        </div>
       </div>
-    </div>
-  )
+    )
 
-  return (
-    <div>
-      {props.isLoading ? loadingRender : quoteRender}
-    </div>
-  )
+    return (
+      <div>
+        {this.props.isLoading ? loadingRender : quoteRender}
+      </div>
+    )
+  }
 }
 
-export default QuoteCard
+
+export default connect(null, { fetchRandomQuote })(QuoteCard)

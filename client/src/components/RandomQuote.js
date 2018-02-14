@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { fetchRandomQuote } from '../actions/quotesActions';
-import { addQuoteToAPI } from '../actions/quotesActions';
+import { addQuoteToCollectionAPI } from '../actions/quotesActions';
 import QuoteCard from './QuoteCard';
 
 class RandomQuote extends Component {
@@ -13,7 +13,7 @@ class RandomQuote extends Component {
 
   addQuoteToCollection = (quoteId) => {
     const token = localStorage.getItem('token');
-    this.props.addQuoteToAPI(quoteId, token);
+    this.props.addQuoteToCollectionAPI(quoteId, token);
   }
 
   render() {
@@ -21,7 +21,12 @@ class RandomQuote extends Component {
 
     return(
       <div>
-        <QuoteCard quote={randomQuote} isLoading={isLoading} addQuoteToCollection={this.addQuoteToCollection}/>
+        <QuoteCard
+          quote={randomQuote}
+          isLoading={isLoading}
+          addQuoteToCollection={this.addQuoteToCollection}
+          fetchRandomQuote={this.props.fetchRandomQuote}
+        />
       </div>
     )
   }
@@ -44,7 +49,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchRandomQuote: fetchRandomQuote,
-    addQuoteToAPI: addQuoteToAPI
+    addQuoteToCollectionAPI: addQuoteToCollectionAPI
   }, dispatch)
 }
 

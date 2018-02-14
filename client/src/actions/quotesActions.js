@@ -20,7 +20,7 @@ export function fetchMyQuotes(token) {
 
 export function fetchRandomQuote() {
   return (dispatch) => {
-    dispatch({type: "FETCH_QUOTES_REQUEST"});
+    dispatch({type: "FETCH_RANDOM_QUOTE_REQUEST"});
     return fetch("http://localhost:3001/quotes/random")
       .then(response => response.json())
       .then(JSON => { dispatch({
@@ -51,7 +51,7 @@ export function createNewQuote(quoteData, token) {
   }
 }
 
-export function addQuoteToAPI(quoteId, token) {
+export function addQuoteToCollectionAPI(quoteId, token) {
   return dispatch => {
     dispatch({type: "ADD_QUOTE_TO_COLLECTION_REQUEST"});
     return fetch("http://localhost:3001/quotes/add", {
