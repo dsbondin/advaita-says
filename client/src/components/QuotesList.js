@@ -12,7 +12,7 @@ const QuotesList = (props) => {
       </div>
     )
   });
-
+  
   return(
     <div>
     { props.isLoading ? loadingRender : quotesRender }

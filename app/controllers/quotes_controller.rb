@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
 
   def my
     if current_user
-      render json: {user: current_user, quotes: current_user.quotes}
+      render json: current_user.quotes
     else
       render json: {errors: "Something went wrong"}
     end
@@ -21,7 +21,7 @@ class QuotesController < ApplicationController
       quote = current_user.quotes.build(content: params[:content])
       if quote.save
         current_user.quotes << quote
-        render json: Quote.order(likes: :desc)
+        render json: current_user.quotes
       else
         render json: {errors: "Something went wrong"}
       end

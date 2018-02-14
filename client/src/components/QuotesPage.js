@@ -11,7 +11,8 @@ import { fetchMyQuotes } from '../actions/quotesActions';
 class QuotesPage extends Component {
 
   componentDidMount() {
-    this.props.fetchMyQuotes();
+    const token = localStorage.getItem('token');
+    this.props.fetchMyQuotes(token);
   }
 
   render() {
