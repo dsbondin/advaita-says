@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/quotes/my' => 'quotes#my'
   get '/quotes/random' => 'quotes#random'
   post '/quotes' => 'quotes#create'
+  post '/quotes/add' => 'quotes#add'
 end
