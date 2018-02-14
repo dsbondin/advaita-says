@@ -6,9 +6,9 @@ const QuotesList = (props) => {
   const quotesRender = props.quotes.map((quote, index) => {
     return (
       <div style={{margin: "20px"}}>
-        <p key={index}>
+        <div key={index} style={{borderRadius: "8px", backgroundColor: "#eee", padding: "12px"}}>
           {quote.content}
-        </p>
+        </div>
       </div>
     )
   });

@@ -15,8 +15,8 @@ class QuoteCard extends Component {
   render() {
     const loadingRender = <div><img height="100px" alt="loading" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/></div>
     const quoteRender = (
-      <div className="card" style={{backgroundColor: '#eee', padding: '20px'}}>
-        <div className="card-block">
+      <div className="card" style={{backgroundColor: '#eee', padding: '12px', borderRadius: "8px"}}>
+        <div className="card-block ">
           <p className="card-text">{this.props.quote.content}</p>
           <button
             className="btn btn-primary"

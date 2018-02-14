@@ -21,7 +21,7 @@ class RandomQuote extends Component {
     const { isLoading, randomQuote} = this.props;
 
     return(
-      <div>
+      <div style={{margin: "20px"}}>
         <QuoteCard
           quote={randomQuote}
           isLoading={isLoading}

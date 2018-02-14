@@ -30,7 +30,7 @@ class NavBar extends Component {
     )
 
     return (
-      <div className="navbar navbar-inverse" style={{backgroundColor: '#446'}}>
+      <div className="navbar navbar-inverse" style={{backgroundColor: '#446', marginTop: "12px"}}>
         <div className="container-fluid">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
