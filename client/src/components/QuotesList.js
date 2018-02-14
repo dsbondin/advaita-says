@@ -7,7 +7,8 @@ const QuotesList = (props) => {
     return (
       <div style={{margin: "20px"}}>
         <div key={index} style={{borderRadius: "8px", backgroundColor: "#eee", padding: "12px"}}>
-          {quote.content}
+          <button className="close">&times;</button>
+          <p>{quote.content}</p>
         </div>
       </div>
     )

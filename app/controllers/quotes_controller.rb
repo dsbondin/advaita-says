@@ -60,5 +60,24 @@ class QuotesController < ApplicationController
     end
   end
 
+  def remove
+    if current_user
+      quote = Quote.find_by(id: params[:quote_id])
+      if !!quote && current_user.quotes.include?(quote)
+        current_user.quotes.delete(quote)
+        render json: {
+          quotes: current_user.quotes,
+          message: {
+            type: "success",
+            text: "Quote successfully removed from your collection."
+          }
+        }
+      else
+        render json: {errors: "This quote does not belong to your collection"}
+      end
+    else
+      render json: {errors: "You are not authorized. Please log in."}
+    end
+  end
 
 end
