@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const QuotesList = (props) => {
-  const loadingRender = <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/></div>
+  const loadingRender = <div><img alt="loading" height="100px" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/></div>
 
   const quotesRender = props.quotes.map((quote, index) => {
     return (

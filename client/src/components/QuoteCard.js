@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchRandomQuote } from '../actions/quotesActions';
 
 class QuoteCard extends Component {
@@ -14,7 +13,7 @@ class QuoteCard extends Component {
   }
 
   render() {
-    const loadingRender = <div><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/></div>
+    const loadingRender = <div><img height="100px" alt="loading" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/></div>
     const quoteRender = (
       <div className="card" style={{backgroundColor: '#eee', padding: '20px'}}>
         <div className="card-block">
@@ -29,7 +28,7 @@ class QuoteCard extends Component {
             className="btn btn-primary"
             style={{marginLeft: "12px"}}
             onClick={() => this.fetchRandom()}>
-            Next quote
+            Next random quote
           </button>
         </div>
       </div>
@@ -42,6 +41,5 @@ class QuoteCard extends Component {
     )
   }
 }
-
 
 export default connect(null, { fetchRandomQuote })(QuoteCard)
