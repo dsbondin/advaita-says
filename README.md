@@ -13,7 +13,7 @@ rails db:migrate
 rails db:seed
 cd client
 npm install
-rake start
+rake start 
 
 ## CONTRIBUTING
 Bug reports and pull requests are welcome on GitHub at https://github.com/dsbondin/advaita-says. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
