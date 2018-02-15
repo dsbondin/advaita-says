@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux'
-import { signupAction } from '../actions/signupAction';
+import { signupAction } from '../actions/authActions';
 
 class SignUpPage extends Component {
   constructor() {

@@ -7,15 +7,14 @@ const initialState = {
 
 export function authReducer(state = initialState, action) {
   switch (action.type) {
-    case 'SEND_SIGN_UP_REQUEST':
+    case 'SEND_AUTH_REQUEST':
       return {...state, isLoading: true}
     case 'SIGN_UP_USER':
       return setCurrentUser(state, action.JSON)
-    case 'SEND_LOG_IN_REQUEST':
-      return {...state, isLoading: true};
     case 'LOG_IN_USER':
       return setCurrentUser(state, action.JSON)
     case 'LOG_OUT_USER':
+      localStorage.clear();
       return initialState;
     default:
       return state;

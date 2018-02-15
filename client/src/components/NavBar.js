@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logoutAction } from '../actions/logoutAction';
+import { logoutAction } from '../actions/authActions';
 
 
 class NavBar extends Component {
@@ -22,7 +22,7 @@ class NavBar extends Component {
         <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )
-    
+
     const guestLinks = (
       <div className="nav navbar-nav">
         <li><Link to="/signup">Sign Up</Link></li>
