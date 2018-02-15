@@ -27,6 +27,7 @@ class RandomQuote extends Component {
           isLoading={isLoading}
           addQuoteToCollection={this.addQuoteToCollection}
           fetchRandomQuote={this.props.fetchRandomQuote}
+          disabled={!!message}
         />
         {!!message ? <FlashMessage message={message}/> : ''}
       </div>

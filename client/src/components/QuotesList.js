@@ -6,6 +6,11 @@ import Quote from './Quote';
 
 class QuotesList extends Component {
 
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    this.props.fetchMyQuotes(token)
+  }
+
   removeQuote = (quoteId) => {
     const token = localStorage.getItem('token')
     this.props.removeQuoteFromCollectionAPI(quoteId, token)
@@ -17,13 +22,18 @@ class QuotesList extends Component {
         <img
           alt="loading"
           height="100px"
-          src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/>
+          src={require("../images/loading-gif.gif")}/>
       </div>
     )
 
-    const renderQuotes = this.props.quotes.map((quote, index) => {
-      return <Quote quote={quote} index={index} removeQuote={this.removeQuote}/>
-    })
+    let renderQuotes = <div style={{margin: "20px"}}>Your collection is empty. Click 'Random' to see if you like any.</div>
+
+    if (this.props.quotes.length > 0) {
+      renderQuotes = this.props.quotes.map((quote, index) => {
+        return <Quote quote={quote} key={index} removeQuote={this.removeQuote}/>
+      })
+    }
+
 
     return (
       <div>

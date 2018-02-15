@@ -1,20 +1,22 @@
 export function fetchMyQuotes(token) {
   return (dispatch) => {
     dispatch({type: "FETCH_QUOTES_REQUEST"});
-    return fetch("http://localhost:3001/quotes/my", {
-      method: "get",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Token": token
-      }
-    })
-      .then(response => response.json())
-      .then(JSON => { dispatch({
-        type: "FETCH_QUOTES",
-        JSON: JSON}
-      );
-    });
+    setTimeout(function(){
+      return fetch("http://localhost:3001/quotes/my", {
+        method: "get",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Token": token
+        }
+      })
+        .then(response => response.json())
+        .then(JSON => { dispatch({
+          type: "FETCH_QUOTES",
+          JSON: JSON}
+        );
+      })
+    }, 400)
   }
 }
 
@@ -29,7 +31,7 @@ export function fetchRandomQuote() {
           JSON: JSON}
         );
       });
-    }, 500)
+    }, 400)
   }
 }
 

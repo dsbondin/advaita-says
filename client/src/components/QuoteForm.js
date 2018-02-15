@@ -33,7 +33,7 @@ class QuoteForm extends Component {
       <div style={{ width: "600px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Add a new quote</h2>
-          <div class="form-group">
+          <div className="form-group">
             <textarea
               className="form-control"
               rows="6"

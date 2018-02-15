@@ -38,7 +38,7 @@ class NavBar extends Component {
             </Link>
           </div>
 
-          <div className="collapse navbar-collapse">
+          <div className="navbar-collapse">
             <ul className="navbar-nav navbar-right">
               {isLoggedIn ? userLinks : guestLinks}
             </ul>

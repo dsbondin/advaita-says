@@ -10,18 +10,13 @@ import { fetchMyQuotes } from '../actions/quotesActions';
 
 class QuotesPage extends Component {
 
-  componentDidMount() {
-    const token = localStorage.getItem('token');
-    this.props.fetchMyQuotes(token);
-  }
-
   render() {
     const { isLoading, quotes } = this.props;
 
     return (
       <div>
         <Switch>
-          <Route exact path='/quotes/my' render={() => <QuotesList quotes={quotes} isLoading={isLoading}/>}/>
+          <Route exact path='/quotes/my' render={() => <QuotesList quotes={quotes} isLoading={isLoading} fetchMyQuotes={this.props.fetchMyQuotes}/>}/>
           <Route exact path='/quotes/random' component={RandomQuote}/>
           <Route exact path='/quotes/new' component={QuoteForm}/>
         </Switch>

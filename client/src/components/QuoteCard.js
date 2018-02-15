@@ -13,12 +13,12 @@ class QuoteCard extends Component {
   }
 
   render() {
-    const loadingRender = <div><img height="100px" alt="loading" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/></div>
+    const loadingRender = <div><img height="100px" alt="loading" src={require("../images/loading-gif.gif")}/></div>
     const quoteRender = (
       <div className="card" style={{backgroundColor: '#eee', padding: '12px', borderRadius: "8px"}}>
         <div className="card-block ">
           <p className="card-text">{this.props.quote.content}</p>
-          <button
+          <button disabled={this.props.disabled}
             className="btn btn-primary"
             onClick={() => this.addQuote(this.props.quote.id)}>
             Add quote to my collection
