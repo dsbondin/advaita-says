@@ -2,7 +2,7 @@ const initialState = {
   currentUser: {},
   token: null,
   isLoading: false,
-  errors: {}
+  signup_errors: {}
 }
 
 export function authReducer(state = initialState, action) {
@@ -30,6 +30,7 @@ function setCurrentUser(state, json) {
   return {...state,
     currentUser: json.user,
     token: json.token,
+    signup_errors: json.signup_errors,
     errors: json.errors,
     isLoading: false};
 }

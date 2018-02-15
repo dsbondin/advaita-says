@@ -39,14 +39,14 @@ class SignUpPage extends Component {
 
   render() {
     const { username, password } = this.state
-    const { errors, isLoading } = this.props
+    const { signup_errors, isLoading } = this.props
 
     return (
       <div style={{ width: "330px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Sign Up</h2>
 
-          <div className={classnames("form-group", {'has-error': errors && errors.username })}>
+          <div className={classnames("form-group", {'has-error': signup_errors && signup_errors.username })}>
             <input
               type="username"
               name="username"
@@ -56,7 +56,7 @@ class SignUpPage extends Component {
               placeholder="username"
               required autoFocus
             />
-            {errors && errors.username ? <span className="help-block">This username&nbsp;{errors.username}</span> : null}
+            {signup_errors && signup_errors.username ? <span className="help-block">This username&nbsp;{signup_errors.username}</span> : null}
           </div>
 
           <div className="form-group">
@@ -84,7 +84,7 @@ function mapStateToProps(state) {
   return {
     token: state.auth.token,
     isLoading: state.auth.isLoading,
-    errors: state.auth.errors
+    signup_errors: state.auth.signup_errors
   }
 }
 
