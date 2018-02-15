@@ -17,6 +17,8 @@ class QuotesList extends Component {
   }
 
   render() {
+    const { quotes, isLoading } = this.props
+
     const renderLoading = (
       <div>
         <img
@@ -28,8 +30,8 @@ class QuotesList extends Component {
 
     let renderQuotes = <div style={{margin: "20px"}}>Your collection is empty. Click 'Random' to see if you like any.</div>
 
-    if (this.props.quotes.length > 0) {
-      renderQuotes = this.props.quotes.map((quote, index) => {
+    if (quotes.length > 0) {
+      renderQuotes = quotes.map((quote, index) => {
         return <Quote quote={quote} key={index} removeQuote={this.removeQuote}/>
       })
     }
@@ -37,7 +39,7 @@ class QuotesList extends Component {
 
     return (
       <div>
-        { this.props.isLoading ? renderLoading : renderQuotes }
+        { isLoading ? renderLoading : renderQuotes }
       </div>
     )
   }

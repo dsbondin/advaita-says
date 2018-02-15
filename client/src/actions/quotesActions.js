@@ -1,6 +1,6 @@
 export function fetchMyQuotes(token) {
   return (dispatch) => {
-    dispatch({type: "FETCH_QUOTES_REQUEST"});
+    dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     setTimeout(function(){
       return fetch("http://localhost:3001/quotes/my", {
         method: "get",
@@ -22,7 +22,7 @@ export function fetchMyQuotes(token) {
 
 export function fetchRandomQuote() {
   return (dispatch) => {
-    dispatch({type: "FETCH_RANDOM_QUOTE_REQUEST"});
+    dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     setTimeout(function(){
       return fetch("http://localhost:3001/quotes/random")
         .then(response => response.json())
@@ -37,7 +37,7 @@ export function fetchRandomQuote() {
 
 export function createNewQuote(quoteData, token) {
   return (dispatch) => {
-    dispatch({type: "ADD_NEW_QUOTE_REQUEST"});
+    dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     return fetch("http://localhost:3001/quotes", {
       method: "post",
       body: JSON.stringify(quoteData),
@@ -57,27 +57,29 @@ export function createNewQuote(quoteData, token) {
 
 export function addQuoteToCollectionAPI(quoteId, token) {
   return dispatch => {
-    dispatch({type: "ADD_QUOTE_TO_COLLECTION_REQUEST"});
-    return fetch("http://localhost:3001/quotes/add", {
-      method: "post",
-      body: JSON.stringify({quote_id: quoteId}),
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Token": token
-      }
-    })
-    .then(response => response.json())
-    .then(JSON => { dispatch({
-      type: "ADD_QUOTE_TO_COLLECTION",
-      JSON: JSON}
-    )})
+    dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
+    setTimeout(function() {
+      return fetch("http://localhost:3001/quotes/add", {
+        method: "post",
+        body: JSON.stringify({quote_id: quoteId}),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "Token": token
+        }
+      })
+      .then(response => response.json())
+      .then(JSON => { dispatch({
+        type: "ADD_QUOTE_TO_COLLECTION",
+        JSON: JSON}
+      )})
+    }, 400)
   }
 }
 
 export function removeQuoteFromCollectionAPI(quoteId, token) {
   return dispatch => {
-    dispatch({type: "REMOVE_QUOTE_FROM_COLLECTION_REQUEST"});
+    dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     return fetch("http://localhost:3001/quotes/remove", {
       method: "delete",
       body: JSON.stringify({quote_id: quoteId}),

@@ -22,6 +22,7 @@ class NavBar extends Component {
         <li><Link to="/login" onClick={this.logout.bind(this)}>Log Out</Link></li>
       </div>
     )
+    
     const guestLinks = (
       <div className="nav navbar-nav">
         <li><Link to="/signup">Sign Up</Link></li>

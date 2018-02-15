@@ -11,6 +11,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-# user1 token
-# eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.WgNU0Qete6Lz82HVnopqH789Uo9n13IM7qr0BF_WYg4

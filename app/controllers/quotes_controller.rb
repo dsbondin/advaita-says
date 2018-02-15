@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
 
   def my
     if current_user
-      render json: {quotes: current_user.quotes}
+      render json: {quotes: current_user.quotes.order(:id)}
     else
       render json: {errors: "Something went wrong"}
     end
