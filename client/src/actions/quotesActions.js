@@ -66,8 +66,28 @@ export function addQuoteToCollectionAPI(quoteId, token) {
       }
     })
     .then(response => response.json())
-    .then (JSON => { dispatch({
+    .then(JSON => { dispatch({
       type: "ADD_QUOTE_TO_COLLECTION",
+      JSON: JSON}
+    )})
+  }
+}
+
+export function removeQuoteFromCollectionAPI(quoteId, token) {
+  return dispatch => {
+    dispatch({type: "REMOVE_QUOTE_FROM_COLLECTION_REQUEST"});
+    return fetch("http://localhost:3001/quotes/remove", {
+      method: "delete",
+      body: JSON.stringify({quote_id: quoteId}),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Token": token
+      }
+    })
+    .then(response => response.json())
+    .then(JSON => { dispatch({
+      type: "REMOVE_QUOTE_FROM_COLLECTION",
       JSON: JSON}
     )})
   }

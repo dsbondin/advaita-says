@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
+import { removeQuoteFromCollectionAPI } from '../actions/quotesActions';
+import Quote from './Quote';
 
-const QuotesList = (props) => {
-  const loadingRender = <div><img alt="loading" height="100px" src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/></div>
+class QuotesList extends Component {
 
-  const quotesRender = props.quotes.map((quote, index) => {
-    return (
-      <div style={{margin: "20px"}}>
-        <div key={index} style={{borderRadius: "8px", backgroundColor: "#eee", padding: "12px"}}>
-          <button className="close">&times;</button>
-          <p>{quote.content}</p>
-        </div>
+  removeQuote = (quoteId) => {
+    const token = localStorage.getItem('token')
+    this.props.removeQuoteFromCollectionAPI(quoteId, token)
+  }
+
+  render() {
+    const renderLoading = (
+      <div>
+        <img
+          alt="loading"
+          height="100px"
+          src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"/>
       </div>
     )
-  });
 
-  return(
-    <div>
-    { props.isLoading ? loadingRender : quotesRender }
-    </div>
-  )
+    const renderQuotes = this.props.quotes.map((quote, index) => {
+      return <Quote quote={quote} index={index} removeQuote={this.removeQuote}/>
+    })
+
+    return (
+      <div>
+        { this.props.isLoading ? renderLoading : renderQuotes }
+      </div>
+    )
+  }
 }
 
-export default QuotesList;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    removeQuoteFromCollectionAPI: removeQuoteFromCollectionAPI
+  }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(QuotesList);

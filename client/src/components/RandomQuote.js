@@ -18,7 +18,7 @@ class RandomQuote extends Component {
   }
 
   render() {
-    const { isLoading, randomQuote} = this.props;
+    const { isLoading, randomQuote, message } = this.props;
 
     return(
       <div style={{margin: "20px"}}>
@@ -28,7 +28,7 @@ class RandomQuote extends Component {
           addQuoteToCollection={this.addQuoteToCollection}
           fetchRandomQuote={this.props.fetchRandomQuote}
         />
-        {!!this.props.message ? <FlashMessage message={this.props.message}/> : ''}
+        {!!message ? <FlashMessage message={message}/> : ''}
       </div>
     )
   }
