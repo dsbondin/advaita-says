@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { fetchRandomQuote } from '../actions/quotesActions';
 import { addQuoteToCollectionAPI } from '../actions/quotesActions';
 import QuoteCard from './QuoteCard';
-import FlashMessage from './FlashMessage';
+import FlashMessage from '../components/FlashMessage';
 
 class RandomQuote extends Component {
 

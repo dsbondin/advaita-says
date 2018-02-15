@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { removeQuoteFromCollectionAPI } from '../actions/quotesActions';
-import Quote from './Quote';
+import Quote from '../components/Quote';
 
 class QuotesList extends Component {
 

@@ -4,14 +4,14 @@ This app is my final project for Fullstack Web Development Bootcamp at Flatiron 
 
 INSTALLATION:
 
-git clone git@github.com:dsbondin/advaita-says.git
-cd advaita-says
-bundle install
-rails db:create
-rails db:migrate
-rails db:seed
-cd client
-npm install
+git clone git@github.com:dsbondin/advaita-says.git |
+cd advaita-says |
+bundle install |
+rails db:create |
+rails db:migrate |
+rails db:seed |
+cd client |
+npm install |
 rake start
 
 CONTRIBUTING GUIDE:
