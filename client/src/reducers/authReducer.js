@@ -16,7 +16,7 @@ export function authReducer(state = initialState, action) {
     case 'LOG_IN_USER':
       return setCurrentUser(state, action.JSON)
     case 'LOG_OUT_USER':
-      return {...initialState, currentUser: null};
+      return initialState;
     default:
       return state;
   }
