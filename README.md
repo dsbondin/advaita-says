@@ -1,24 +1,22 @@
-# README
+Advaita Says (Nisargadatta Says)
+This app is my final project for Fullstack Web Development Bootcamp at Flatiron School. It is written using React/Redux with Rails API backend.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Usage
+The app will display to you some random quotes by Nisargadatta Maharaj. If you like the quote you can save it to your collection. Or you can add one using the 'New Quote' form.
 
-Things you may want to cover:
+Installation
+git clone git@github.com:dsbondin/advaita-says.git
+cd advaita-says
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+cd client
+npm install
+rake start
 
-* Ruby version
+Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/dsbondin/advaita-says. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License
+The app is available as open source under the terms of the MIT License.
