@@ -8,7 +8,7 @@ const initialState = {
 export function authReducer(state = initialState, action) {
   switch (action.type) {
     case 'SEND_AUTH_REQUEST':
-      return {...state, isLoading: true}
+      return {...state, isLoading: true, errors: {password: "."}}
     case 'SIGN_UP_USER':
       return setCurrentUser(state, action.JSON)
     case 'LOG_IN_USER':

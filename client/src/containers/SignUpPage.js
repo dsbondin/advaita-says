@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux'
-import { signupAction } from '../actions/authActions';
+import { signupUser } from '../actions/authActions';
 import {AuthFormWrapper} from '../components/AuthFormWrapper';
 import AuthButton from '../components/AuthButton';
 
@@ -24,7 +24,7 @@ class SignUpPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.signupAction(this.state);
+    this.props.signupUser(this.state);
     this.setState({
       username: '',
       password: ''
@@ -87,4 +87,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {signupAction})(SignUpPage);
+export default connect(mapStateToProps, {signupUser})(SignUpPage);

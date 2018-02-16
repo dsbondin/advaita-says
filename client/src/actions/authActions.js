@@ -1,4 +1,4 @@
-export function signupAction(userData) {
+export function signupUser(userData) {
   return (dispatch) => {
     dispatch({type: "SEND_AUTH_REQUEST"});
     return fetch("http://localhost:3001/users", {
@@ -17,7 +17,7 @@ export function signupAction(userData) {
   }
 }
 
-export function loginAction(userData) {
+export function loginUser(userData) {
   return (dispatch) => {
     dispatch({type: "SEND_AUTH_REQUEST"});
     return fetch("http://localhost:3001/login", {

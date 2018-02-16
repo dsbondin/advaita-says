@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import { connect } from 'react-redux'
-import { loginAction } from '../actions/authActions';
+import { loginUser } from '../actions/authActions';
 import { AuthFormWrapper } from '../components/AuthFormWrapper';
 import AuthButton from '../components/AuthButton';
 
@@ -24,17 +24,24 @@ class LogInPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.loginAction(this.state);
-    this.setState({
-      username: '',
-      password: ''
-    });
+    this.props.loginUser(this.state);
   }
 
-  // redirect only if user logs in successfully
-  componentWillReceiveProps(props) {
-    if (!!props.token) {
+  componentWillReceiveProps(nextProps) {
+    // redirect only if user logs in successfully
+    if (!!nextProps.token) {
       this.props.history.push('/quotes/random')
+    };
+    // does not clear username field if username is found but password is wrong
+    if (nextProps.errors && nextProps.errors.password) {
+      this.setState({
+        password: ''
+      });
+    } else {
+      this.setState({
+        username: '',
+        password: ''
+      });
     }
   }
 
@@ -88,4 +95,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {loginAction})(LogInPage);
+export default connect(mapStateToProps, {loginUser})(LogInPage);
