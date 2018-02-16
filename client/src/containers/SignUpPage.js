@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux'
 import { signupUser } from '../actions/authActions';
 import {AuthFormWrapper} from '../components/AuthFormWrapper';
-import AuthButton from '../components/AuthButton';
+import SubmitButton from '../components/SubmitButton';
 
 class SignUpPage extends Component {
   constructor() {
@@ -71,7 +71,7 @@ class SignUpPage extends Component {
         </div>
 
         <div className="form-group">
-          <AuthButton text={"Sign Up"} isLoading={isLoading}/>
+          <SubmitButton text={"Sign Up"} isLoading={isLoading}/>
         </div>
 
       </AuthFormWrapper>

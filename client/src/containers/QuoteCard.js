@@ -21,13 +21,14 @@ class QuoteCard extends Component {
           <p className="card-text" style={{fontStyle: "italic", fontSize: "15px", color: "#603"}}>{quote.content}</p>
           <button disabled={disabled}
             className="btn btn-primary"
+            style={{backgroundColor: "#669"}}
             onClick={() => this.addQuote(quote.id)}>
             Add quote to my collection
           </button>
 
           <button
             className="btn btn-primary"
-            style={{marginLeft: "12px"}}
+            style={{marginLeft: "12px", backgroundColor: "#669"}}
             onClick={() => this.fetchRandom()}>
             Next random quote
           </button>

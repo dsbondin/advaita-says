@@ -8,6 +8,7 @@ const initialState = {
 export function authReducer(state = initialState, action) {
   switch (action.type) {
     case 'SEND_AUTH_REQUEST':
+      // creating fake errors.password property here so that LoginPage componentWillReceiveProps could catch it
       return {...state, isLoading: true, errors: {password: "."}}
     case 'SIGN_UP_USER':
       return setCurrentUser(state, action.JSON)

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { createNewQuote } from '../actions/quotesActions';
+import SubmitButton from '../components/SubmitButton';
 
 
 class QuoteForm extends Component {
@@ -36,6 +37,7 @@ class QuoteForm extends Component {
           <div className="form-group">
             <textarea
               className="form-control"
+              style={{fontStyle: "italic", fontSize: "16px", color: "#603"}}
               rows="6"
               value={this.state.content}
               onChange={this.handleChange}
@@ -45,13 +47,7 @@ class QuoteForm extends Component {
           </div>
 
           <div className="form-group">
-            <button
-              disabled={this.props.isLoading}
-              style={{marginTop: '12px'}}
-              className="btn btn-lg btn-primary btn-block"
-              type="submit"
-            >Submit
-            </button>
+            <SubmitButton text={"Submit"} isLoading={this.props.isLoading}/>
           </div>
         </form>
       </div>
