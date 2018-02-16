@@ -18,7 +18,7 @@ class QuotesController < ApplicationController
       if quote.save
         current_user.quotes << quote
         render json: {
-          quotes: current_user.quotes,
+          quotes: current_user.quotes.order(:id),
           message: {
             type: "success",
             text: "Quote created successfully!"
@@ -37,7 +37,7 @@ class QuotesController < ApplicationController
       quote = Quote.find_by(id: params[:quote_id])
       if !!quote && current_user.quotes.include?(quote)
         render json: {
-          quotes: current_user.quotes,
+          quotes: current_user.quotes.order(:id),
           message: {
             type: "failure",
             text: "This quote is already in your collection."
@@ -46,7 +46,7 @@ class QuotesController < ApplicationController
       elsif !!quote
         current_user.quotes << quote
         render json: {
-          quotes: current_user.quotes,
+          quotes: current_user.quotes.order(:id),
           message: {
             type: "success",
             text: "Quote added successfully!"
@@ -66,7 +66,7 @@ class QuotesController < ApplicationController
       if !!quote && current_user.quotes.include?(quote)
         current_user.quotes.delete(quote)
         render json: {
-          quotes: current_user.quotes,
+          quotes: current_user.quotes.order(:id),
           message: {
             type: "success",
             text: "Quote successfully removed from your collection."

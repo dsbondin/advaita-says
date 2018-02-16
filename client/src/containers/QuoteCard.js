@@ -18,7 +18,7 @@ class QuoteCard extends Component {
     const quoteRender = (
       <div className="card" style={{backgroundColor: '#eee', padding: '12px', borderRadius: "8px"}}>
         <div className="card-block ">
-          <p className="card-text">{quote.content}</p>
+          <p className="card-text" style={{fontStyle: "italic", fontSize: "15px", color: "#603"}}>{quote.content}</p>
           <button disabled={disabled}
             className="btn btn-primary"
             onClick={() => this.addQuote(quote.id)}>

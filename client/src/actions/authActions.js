@@ -36,6 +36,6 @@ export function loginUser(userData) {
   }
 }
 
-export function logoutAction() {
+export function logoutUser() {
   return {type: 'LOG_OUT_USER'};
 }
