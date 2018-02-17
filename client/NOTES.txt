@@ -6,7 +6,7 @@
 associations. Do not send back updated quotes in response, only the success message.
 
 3.5 Same with creating new quotes. Add the new quote to the current list of user's fav quotes in the store, then
-send request to API to create new quote and associate with the user. 
+send request to API to create new quote and associate with the user.
 
 4. Add like to a quote when user adds it to collection. Create another page that lists quotes ordered by likes.
 
@@ -18,3 +18,5 @@ send request to API to create new quote and associate with the user.
   - add Authors page
 
 7. Add utility function that checks if user is authorized.
+
+8. Error handling on fetch requtests.

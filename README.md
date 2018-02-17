@@ -1,20 +1,21 @@
-ADVAITA SAYS
+## Advaita Says
 
 This app is my final project for Fullstack Web Development Bootcamp at Flatiron School. It is written using React/Redux with Rails API backend. The app will display to you some random quotes by Nisargadatta Maharaj. If you like the quote you can save it to your collection. Or you can add one using the 'New Quote' form.
 
-INSTALLATION:
+## Installation
 
-git clone git@github.com:dsbondin/advaita-says.git |
-cd advaita-says |
-bundle install |
-rails db:create |
-rails db:migrate |
-rails db:seed |
-cd client |
-npm install |
-rake start
+### `git clone git@github.com:dsbondin/advaita-says.git`
+### `cd advaita-says`
+### `bundle install`
+### `rails db:create`
+### `rails db:migrate`
+### `rails db:seed`
+### `cd client`
+### `npm install`
+### `rake start`
 
-CONTRIBUTING GUIDE:
+## Contributing guide
+
 If you see an opportunity for improvement and can make the change yourself go ahead and use a typical git workflow to make it happen:
 
 Fork this repository
@@ -22,7 +23,7 @@ Make the change on your fork, with descriptive commits in the standard format
 Open a Pull Request against this repo
 The code owner will review your change and approve or comment on it in due course.
 
-LICENSE:
+## License
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -45,4 +46,4 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-LICENSE.md
+[here](https://github.com/dsbondin/advaita-says/blob/master/LICENSE.md)
