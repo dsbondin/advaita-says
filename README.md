@@ -4,6 +4,7 @@ This app is my final project for Fullstack Web Development Bootcamp at Flatiron 
 
 ## Installation
 
+```
  `git clone git@github.com:dsbondin/advaita-says.git`
  `cd advaita-says`
  `bundle install`
@@ -13,6 +14,7 @@ This app is my final project for Fullstack Web Development Bootcamp at Flatiron 
  `cd client`
  `npm install`
  `rake start`
+ ```
 
 ## Contributing guide
 
@@ -46,4 +48,4 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[here](https://github.com/dsbondin/advaita-says/blob/master/LICENSE.md)
+[Lisence](https://github.com/dsbondin/advaita-says/blob/master/LICENSE.md)
