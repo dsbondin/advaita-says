@@ -2,7 +2,7 @@ export function fetchMyQuotes(token) {
   return (dispatch) => {
     dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     setTimeout(function(){
-      return fetch("http://localhost:3001/quotes/my", {
+      return fetch("/api/quotes/my", {
         method: "get",
         headers: {
           "Accept": "application/json",
@@ -24,7 +24,7 @@ export function fetchRandomQuote() {
   return (dispatch) => {
     dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     setTimeout(function(){
-      return fetch("http://localhost:3001/quotes/random")
+      return fetch("/api/quotes/random")
         .then(response => response.json())
         .then(JSON => { dispatch({
           type: "FETCH_RANDOM_QUOTE",
@@ -38,7 +38,7 @@ export function fetchRandomQuote() {
 export function createNewQuote(quoteData, token) {
   return (dispatch) => {
     dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
-    return fetch("http://localhost:3001/quotes", {
+    return fetch("/api/quotes", {
       method: "post",
       body: JSON.stringify(quoteData),
       headers: {
@@ -59,7 +59,7 @@ export function addQuoteToCollectionAPI(quoteId, token) {
   return dispatch => {
     dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
     setTimeout(function() {
-      return fetch("http://localhost:3001/quotes/add", {
+      return fetch("/api/quotes/add", {
         method: "post",
         body: JSON.stringify({quote_id: quoteId}),
         headers: {
@@ -80,7 +80,7 @@ export function addQuoteToCollectionAPI(quoteId, token) {
 export function removeQuoteFromCollectionAPI(quoteId, token) {
   return dispatch => {
     dispatch({type: "SEND_ASYNCHRONOUS_REQUEST"});
-    return fetch("http://localhost:3001/quotes/remove", {
+    return fetch("/api/quotes/remove", {
       method: "delete",
       body: JSON.stringify({quote_id: quoteId}),
       headers: {

@@ -1,7 +1,7 @@
 export function signupUser(userData) {
   return (dispatch) => {
     dispatch({type: "SEND_AUTH_REQUEST"});
-    return fetch("http://localhost:3001/users", {
+    return fetch("/api/users", {
       method: "post",
       body: JSON.stringify(userData),
       headers: {
@@ -20,7 +20,7 @@ export function signupUser(userData) {
 export function loginUser(userData) {
   return (dispatch) => {
     dispatch({type: "SEND_AUTH_REQUEST"});
-    return fetch("http://localhost:3001/login", {
+    return fetch("/api/login", {
       method: "post",
       body: JSON.stringify(userData),
       headers: {
