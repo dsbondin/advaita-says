@@ -1,9 +1,9 @@
 {
-  "short_name": "Advaita Says",
-  "name": "Advaita Says App",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "Om_symbol.svg",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
