@@ -12,6 +12,10 @@ class QuotesController < ApplicationController
     render json: Quote.order("RANDOM()").first
   end
 
+  def test
+    render json: {test: "test"}
+  end
+
   def create
     if current_user
       quote = current_user.quotes.build(content: params[:content])
