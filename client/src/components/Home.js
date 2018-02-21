@@ -19,6 +19,11 @@ const Home = () => {
         <a href="https://en.wikipedia.org/wiki/Nisargadatta_Maharaj"> Nisargadatta Maharaj</a>.
         If you like the quote you can save it to your collection. Or you can add one using the 'New Quote' form.
       </p>
+
+      <p style={{margin: "auto"}}>
+        demo-login: <span style={{color: "red"}}>bob</span><br />
+        password: <span style={{color: "red"}}>bob</span>
+      </p>
     </div>
   )
 }

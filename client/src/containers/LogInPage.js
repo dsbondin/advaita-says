@@ -65,7 +65,7 @@ class LogInPage extends Component {
           {errors && errors.username ? <span className="help-block">{errors.username}</span> : null}
         </div>
 
-        <div className={classnames("form-group", {'has-error': errors && errors.password })}>
+        <div className={classnames("form-group", {'has-error': errors && errors.password !== "." })}>
           <input
             type="password"
             name="password"
