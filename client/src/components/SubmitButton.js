@@ -5,7 +5,7 @@ const SubmitButton = ({text, isLoading}) => {
     <button
       className="btn btn-lg btn-primary btn-block"
       disabled={isLoading}
-      style={{backgroundColor: "#669"}}
+      style={{backgroundColor: "#669", borderColor: "#669"}}
       type="submit">
       {text}
     </button>
