@@ -1,4 +1,5 @@
 1. Block login/logout from rendering when user is authenticated and quotes when user is not.
+// DONE
 
 2. Clear store's quotes property when logging out.
 
