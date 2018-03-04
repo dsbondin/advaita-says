@@ -136,6 +136,8 @@ quotes = [
   until the secret of your being stands revealed."
 ]
 
+Author.create(name: "Nisargadatta Maharaj")
+
 quotes.map do |quote|
-  Quote.create(content: quote)
+  Quote.create(content: quote, author: Author.last)
 end
