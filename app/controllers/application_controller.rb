@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 
   def encode_token(payload)
-    token = JWT.encode(payload, "nisarga")
+    JWT.encode(payload, "nisarga")
   end
 
   def current_user

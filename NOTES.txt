@@ -14,7 +14,7 @@ send request to API to create new quote and associate with the user.
 5. Update the model, there's no need to have quote has_many users through user_quotes association. Only user has many quotes.
 
 6. Add author to quotes:
-  - add Author model,
+  - add Author model, // DONE
   - update form with author,
   - add Authors page
 
