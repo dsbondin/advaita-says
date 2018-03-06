@@ -2,6 +2,7 @@
 // DONE
 
 2. Clear store's quotes property when logging out.
+// DONE
 
 3. When user deletes a quote from his list first remove quote from the store, then send request to API to update
 associations. Do not send back updated quotes in response, only the success message.
@@ -13,11 +14,11 @@ send request to API to create new quote and associate with the user.
 
 5. Update the model, there's no need to have quote has_many users through user_quotes association. Only user has many quotes.
 
-6. Add author to quotes:
-  - add Author model,  // DONE
+6. Add author to quotes: // PARTIALLY DONE
+  - add Author model, // DONE
   - update form with author,
   - add Authors page
 
 7. Add utility function that checks if user is authorized.
 
-8. Error handling on fetch requtests.
+8. Error handling on fetch requests.
