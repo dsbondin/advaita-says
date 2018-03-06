@@ -20,6 +20,8 @@ export function quotesReducer(state = initialState, action) {
       return {...state, list: action.JSON.quotes, errors: action.JSON.errors, message: action.JSON.message, isLoading: false}
     case 'REMOVE_QUOTE_FROM_COLLECTION':
       return {...state, list: action.JSON.quotes, errors: action.JSON.errors, message: action.JSON.message, isLoading: false}
+    case 'LOG_OUT_USER':
+      return initialState;
     default:
       return state;
   }
