@@ -1,0 +1,24 @@
+1. Block login/logout from rendering when user is authenticated and quotes when user is not.
+// DONE
+
+2. Clear store's quotes property when logging out.
+
+3. When user deletes a quote from his list first remove quote from the store, then send request to API to update
+associations. Do not send back updated quotes in response, only the success message.
+
+3.5 Same with creating new quotes. Add the new quote to the current list of user's fav quotes in the store, then
+send request to API to create new quote and associate with the user.
+
+4. Add like to a quote when user adds it to collection. Create another page that lists quotes ordered by likes.
+
+5. Update the model, there's no need to have quote has_many users through user_quotes association. Only user has many quotes.
+
+6. Add author to quotes: // PARTIALLY DONE
+  - add Author model, // DONE
+  - update form with author,
+  - add Authors page
+
+7. Add utility function that checks if user is authorized.
+
+8. Error handling on fetch requests.
+  

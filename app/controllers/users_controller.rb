@@ -11,3 +11,5 @@ class UsersController < ApplicationController
   end
 
 end
+
+# encode_token method is in ApplicationController
