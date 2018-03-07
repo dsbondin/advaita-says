@@ -39,6 +39,7 @@ class QuotesController < ApplicationController
   def add
     if current_user
       quote = Quote.find_by(id: params[:quote_id])
+
       if !!quote && current_user.quotes.include?(quote)
         render json: {
           quotes: current_user.quotes.order(:id),
@@ -61,6 +62,7 @@ class QuotesController < ApplicationController
       else
         render json: {errors: "This quote does not exist."}
       end
+
     else
       render json: {errors: "You are not authorized. Please log in."}
     end
@@ -69,6 +71,7 @@ class QuotesController < ApplicationController
   def remove
     if current_user
       quote = Quote.find_by(id: params[:quote_id])
+
       if !!quote && current_user.quotes.include?(quote)
         current_user.quotes.delete(quote)
         quote.likes -= 1 unless quote.likes = 0
@@ -80,9 +83,11 @@ class QuotesController < ApplicationController
             text: "Quote successfully removed from your collection."
           }
         }
+
       else
         render json: {errors: "This quote does not belong to your collection"}
       end
+
     else
       render json: {errors: "You are not authorized. Please log in."}
     end
