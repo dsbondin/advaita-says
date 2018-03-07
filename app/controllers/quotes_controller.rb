@@ -49,6 +49,7 @@ class QuotesController < ApplicationController
           }
       elsif !!quote
         current_user.quotes << quote
+        quote.likes += 1
         render json: {
           quotes: current_user.quotes.order(:id),
           message: {
@@ -69,6 +70,7 @@ class QuotesController < ApplicationController
       quote = Quote.find_by(id: params[:quote_id])
       if !!quote && current_user.quotes.include?(quote)
         current_user.quotes.delete(quote)
+        quote.likes -=1
         render json: {
           quotes: current_user.quotes.order(:id),
           message: {

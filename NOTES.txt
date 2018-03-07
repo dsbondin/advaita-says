@@ -13,6 +13,7 @@ send request to API to create new quote and associate with the user.
 4. Add like to a quote when user adds it to collection. Create another page that lists quotes ordered by likes.
 
 5. Update the model, there's no need to have quote has_many users through user_quotes association. Only user has many quotes.
+// This wouldn't work, leaving the models association as is.
 
 6. Add author to quotes: // PARTIALLY DONE
   - add Author model, // DONE
