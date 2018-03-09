@@ -18,9 +18,10 @@ class QuotesController < ApplicationController
 
   def create
     if current_user
-      quote = current_user.quotes.build(content: params[:content])
+      quote = Quote.new(content: params[:content])
+      quote.author = Author.last
+      current_user.quotes << quote
       if quote.save
-        current_user.quotes << quote
         render json: {
           quotes: current_user.quotes.order(:id),
           message: {
