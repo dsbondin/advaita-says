@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post '/quotes/add' => 'quotes#add'
     delete '/quotes/remove' => 'quotes#remove'
     get '/quotes/test' => 'quotes#test'
+    get '/authors' => 'authors#index'
   end
 
 end
