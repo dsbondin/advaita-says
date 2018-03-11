@@ -18,8 +18,7 @@ class QuotesController < ApplicationController
 
   def create
     if current_user
-      quote = Quote.new(content: params[:content])
-      quote.author = Author.last
+      quote = Quote.new(content: params[:content], author_id: params[:authorId])
       current_user.quotes << quote
       quote.likes += 1
       if quote.save

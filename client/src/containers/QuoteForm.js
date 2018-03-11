@@ -10,7 +10,7 @@ class QuoteForm extends Component {
 
     this.state = {
       content: '',
-      author: null,
+      authorId: null,
       authors: []
     }
   }
@@ -63,7 +63,7 @@ class QuoteForm extends Component {
           </div>
 
           <div className="form-group" style={{textAlign: "right"}}>
-            <select name="author" style={{width: "200px"}} onChange={this.handleChange}>
+            <select name="authorId" style={{width: "200px"}} onChange={this.handleChange}>
               <option disabled selected="true">Select author</option>
               {this.state.authors.map(author => {
                 return <option key={author.id} value={author.id}>{author.name}</option>
