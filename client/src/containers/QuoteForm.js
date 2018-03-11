@@ -10,8 +10,8 @@ class QuoteForm extends Component {
 
     this.state = {
       content: '',
-      authorId: null,
-      authors: []
+      authorId: 1,
+      authors: [],
     }
   }
 
@@ -30,7 +30,7 @@ class QuoteForm extends Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     })
   }
 
@@ -64,7 +64,6 @@ class QuoteForm extends Component {
 
           <div className="form-group" style={{textAlign: "right"}}>
             <select name="authorId" style={{width: "200px"}} onChange={this.handleChange}>
-              <option disabled selected="true">Select author</option>
               {this.state.authors.map(author => {
                 return <option key={author.id} value={author.id}>{author.name}</option>
               })}

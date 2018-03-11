@@ -11,12 +11,12 @@ const Home = () => {
       />
 
       <h1 style={{textAlign: "center", marginBottom: "20px"}}>
-        Welcome, stranger!
+        Welcome, jiva!
       </h1>
 
       <p style={{paddingLeft: "40px"}}>
         This little app will display to you some random quotes by
-        <a href="https://en.wikipedia.org/wiki/Nisargadatta_Maharaj"> Nisargadatta Maharaj</a>.
+        <a href="https://en.wikipedia.org/wiki/Nisargadatta_Maharaj"> Nisargadatta Maharaj</a> and other great Advaita masters.
         If you like the quote you can save it to your collection. Or you can add one using the 'New Quote' form.
       </p>
 

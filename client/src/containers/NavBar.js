@@ -35,7 +35,7 @@ class NavBar extends Component {
         <div className="container-fluid">
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">
-              Nisargadatta Says: {isLoggedIn ? `neti neti, ${username}!`: ''}
+              Advaita Says: {isLoggedIn ? `neti neti, ${username}!`: ''}
             </Link>
           </div>
 
