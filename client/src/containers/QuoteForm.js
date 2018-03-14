@@ -62,15 +62,23 @@ class QuoteForm extends Component {
             </textarea>
           </div>
 
-          <div className="form-group" style={{textAlign: "right"}}>
-            <select name="authorId" style={{width: "200px"}} onChange={this.handleChange}>
-              {this.state.authors.map(author => {
-                return <option key={author.id} value={author.id}>{author.name}</option>
-              })}
-            </select>
+          <div className="form-row">
+            <div className="col-md-2">
+              <span style={{margin: "auto"}}>Author: </span>
+            </div>
+            <div className="col-md-5">
+              <select className="form-control" name="authorId" onChange={this.handleChange}>
+                {this.state.authors.map(author => {
+                  return <option key={author.id} value={author.id}>{author.name}</option>
+                })}
+              </select>
+            </div>
+            <div className="col-md-5">
+              <input type="text" className="form-control"/>
+            </div>
           </div>
 
-          <div className="form-group">
+          <div className="form-group" style={{marginTop: "60px"}}>
             <SubmitButton text={"Submit"} isLoading={this.props.isLoading}/>
           </div>
         </form>
