@@ -46,7 +46,7 @@ class LogInPage extends Component {
   }
 
   render() {
-    const { username, password} = this.state
+    const { username, password } = this.state
     const { errors, isLoading } = this.props
 
     return (

@@ -13,6 +13,7 @@ class QuoteForm extends Component {
       authorId: 1,
       authorName: '',
       authors: [],
+      authorIdField: null
     }
   }
 
@@ -29,9 +30,22 @@ class QuoteForm extends Component {
     )
   }
 
-  handleChange = (event) => {
+  handleSelectAuthorChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      authorId: event.target.value,
+      authorName: ''
+    })
+  }
+
+  handleNewAuthorChange = (event) => {
+    this.setState({
+      authorName: event.target.value
+    })
+  }
+
+  clearAuthorField = (event) => {
+    this.setState({
+      authorId: 0
     })
   }
 
@@ -47,7 +61,7 @@ class QuoteForm extends Component {
 
   render() {
     return (
-      <div style={{ width: "600px", margin: "auto"}}>
+      <div style={{ maxWidth: "600px", margin: "auto"}}>
         <form className="form-signin" onSubmit={this.handleSubmit}>
           <h2 className="form-signin-heading">Add a new quote</h2>
           <div className="form-group">
@@ -64,11 +78,16 @@ class QuoteForm extends Component {
           </div>
 
           <div className="form-row">
-            <div className="col-md-3">
-              Quote author:
+            <div className="col-md-3" style={{paddingTop: "8px", paddingLeft: "46px"}}>
+              <span>Select author:</span>
             </div>
             <div className="col-md-4">
-              <select className="form-control" name="authorId" onChange={this.handleChange}>
+              <select
+                className="form-control"
+                name="authorId"
+                onChange={this.handleSelectAuthorChange}
+                disabled={this.state.authorIdField}
+              >
                 {this.state.authors.map(author => {
                   return <option key={author.id} value={author.id}>{author.name}</option>
                 })}
@@ -80,8 +99,9 @@ class QuoteForm extends Component {
                 className="form-control"
                 value={this.state.authorName}
                 name="authorName"
-                placeholder="new author"
-                onChange={this.handleChange}
+                placeholder="or enter new author"
+                onChange={this.handleNewAuthorChange}
+                onFocus={this.clearAuthorField}
               />
             </div>
           </div>
