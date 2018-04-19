@@ -20,8 +20,8 @@ class ApplicationController < ActionController::API
 
   def remove_quote(quote)
     current_user.quotes.delete(quote)
-    quote.likes -= 1 unless quote.likes = 0
+    quote.likes -= 1 unless quote.likes == 0
     quote.save
   end
-  
+
 end
